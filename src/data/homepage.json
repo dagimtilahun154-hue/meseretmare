@@ -1,0 +1,105 @@
+{
+  "hero": {
+    "title": "Power, sized right.",
+    "subtitle": "Solar pumps, home systems, and field support for Ethiopia.",
+    "primary_button": {
+      "label": "View products",
+      "target": "products"
+    }
+  },
+  "capabilities": {
+    "heading": "Certified supply. Clean delivery.",
+    "items": [
+      {
+        "icon": "ShieldCheck",
+        "label": "Certified imports",
+        "value": "Lighting Global certified focus"
+      },
+      {
+        "icon": "Droplet",
+        "label": "Water security",
+        "value": "Agricultural and community pumps"
+      },
+      {
+        "icon": "Wrench",
+        "label": "Field care",
+        "value": "Assessment, install, maintenance"
+      }
+    ]
+  },
+  "featured": {
+    "heading": "Product lines."
+  },
+  "field_proof": {
+    "heading": "Field proof.",
+    "items": [
+      {
+        "title": "Ethiopia Access",
+        "detail": "Solar reach for underserved communities.",
+        "image": "/uploads/proof-community-solar.png"
+      },
+      {
+        "title": "Productive Use",
+        "detail": "Connectivity, cooling, and clean power.",
+        "image": "/uploads/hero-solar-field.png"
+      },
+      {
+        "title": "Home Power",
+        "detail": "Sun King home systems in daily life.",
+        "image": "/uploads/product-home-kit.png"
+      }
+    ]
+  },
+  "achievements": {
+    "heading": "We Pride Ourselves On Our Significant Achievements:",
+    "items": [
+      {
+        "icon": "Award",
+        "title": "Imported Successfully",
+        "description": "solar products from manufacturers like Greenlight Planet Inc., OV Beacon, and d.light, including products certified by Lighting Global."
+      },
+      {
+        "icon": "Users",
+        "title": "Strong Partnerships",
+        "description": "Established strong partnerships with the Development Bank of Ethiopia and various regional agencies."
+      },
+      {
+        "icon": "Target",
+        "title": "Increased Operation Area",
+        "description": "Successfully distributed solar solutions in SNNP, Oromia, Tigray, and Amhara regions."
+      }
+    ]
+  },
+  "operating_model": {
+    "heading": "Clear from day one.",
+    "steps": [
+      {
+        "number": "01",
+        "label": "Field check"
+      },
+      {
+        "number": "02",
+        "label": "Right sizing"
+      },
+      {
+        "number": "03",
+        "label": "Certified supply"
+      },
+      {
+        "number": "04",
+        "label": "Install and care"
+      }
+    ]
+  },
+  "latest_news": {
+    "heading": "Latest news.",
+    "button_label": "All news",
+    "target": "news",
+    "count": 3
+  },
+  "final_cta": {
+    "heading": "Size first. Buy once.",
+    "button_label": "Start request",
+    "target": "contact"
+  }
+}

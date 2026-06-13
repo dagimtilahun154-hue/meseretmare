@@ -1,0 +1,66 @@
+{
+  "home": {
+    "hero_title": "Power, sized right.",
+    "hero_subtitle": "Solar pumps, home systems, and field support for Ethiopia.",
+    "achievements_title": "We Pride Ourselves On Our Significant Achievements:",
+    "achievement1_title": "Imported Successfully",
+    "achievement1_desc": "solar products from manufacturers like Greenlight Planet Inc., OV Beacon, and d.light, including products certified by Lighting Global.",
+    "achievement2_title": "Strong Partnerships",
+    "achievement2_desc": "Established strong partnerships with the Development Bank of Ethiopia and various regional agencies.",
+    "achievement3_title": "Increased Operation Area",
+    "achievement3_desc": "Successfully distributed solar solutions in SNNP, Oromia, Tigray, and Amhara regions.",
+    "assembly_title": "Local assembly initiative",
+    "assembly_desc": "Preparing local assembly for 1, 3, and 4 bulb solar home systems and agricultural solar water pumps to create jobs, transfer skills, and reduce hardware costs."
+  },
+  "about": {
+    "title": "Solving Ethiopia rural energy challenges.",
+    "intro": "Established in 2016, Meseret Mare Gebre Solar Products Importer distributes certified, affordable solar solutions for off-grid homes, farms, and institutions.",
+    "signature_title": "Reliable imports. Local support.",
+    "signature_text": "Focused on affordability, trust, and clean energy access for rural communities.",
+    "intro_title": "Dedicated to clean power access.",
+    "intro_paragraphs": [
+      "Meseret Mare Gebre Solar Products Importer was established to address Ethiopia's critical energy shortage, especially in rural and off-grid areas. We import and distribute high-quality solar products at affordable rates to improve household life, agricultural productivity, and institutional reliability.",
+      "By replacing kerosene lighting, powering irrigation, and supporting productive use, we create safer homes, more productive farms, and stronger local economies."
+    ],
+    "mission_title": "Our Mission",
+    "mission_description": "Fulfill the power needs of the Ethiopian people with high-quality service and innovative solar solutions that benefit customers and partners.",
+    "vision_title": "Our Vision",
+    "vision_description": "Completely alleviate the power challenges of rural Ethiopians through sustainable, green, and affordable solar technologies.",
+    "values_heading": "Our Core Values",
+    "values_intro": "The principles that guide every decision we make.",
+    "timeline_heading": "Our Journey",
+    "timeline_intro": "Key milestones in our mission to power Ethiopia."
+  },
+  "services": {
+    "title": "Full lifecycle solar delivery.",
+    "intro": "From site assessment and system design to import, installation, training, monitoring, and long-term maintenance.",
+    "signature_title": "Fast path to working power.",
+    "signature_text": "Less paperwork. More field clarity.",
+    "flow_steps": [
+      "Assess site",
+      "Design system",
+      "Supply certified hardware",
+      "Install and commission",
+      "Train users",
+      "Maintain performance"
+    ]
+  },
+  "products": {
+    "title": "Certified hardware for Ethiopian conditions.",
+    "intro": "Solar water pumps, home systems, lighting, DC appliances, and future local assembly programs built for real field use.",
+    "signature_title": "Certified product focus.",
+    "signature_text": "Practical choices for tough environments.",
+    "assembly_title": "Local assembly initiative",
+    "assembly_description": "Preparing local assembly for 1, 3, and 4 bulb solar home systems and agricultural solar water pumps to create jobs, transfer skills, and reduce hardware costs."
+  },
+  "news": {
+    "title": "Updates from the field.",
+    "intro": "Exhibitions, partnerships, awards, and community impact stories from Meseret Mare.",
+    "signature_title": "Stay informed.",
+    "signature_text": "Updates from our work across Ethiopia."
+  },
+  "contact": {
+    "title": "Speak with our solar experts.",
+    "intro": "Ask about pricing, product specifications, pump design, installation, or a site-specific recommendation."
+  }
+}

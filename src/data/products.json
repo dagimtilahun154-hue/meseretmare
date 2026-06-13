@@ -1,0 +1,353 @@
+{
+  "products": [
+    {
+      "name": "Difful Submersible Solar Pump",
+      "model": "1500W 110V DC Motor",
+      "category": "Solar Pumps",
+      "use": "Borehole pumping for deep wells and irrigation",
+      "image": "/uploads/difful-submersible-solar-pump.webp",
+      "features": [
+        "Brushless DC motor",
+        "Submersible",
+        "High efficiency"
+      ],
+      "specs": [
+        "1500W",
+        "110V DC",
+        "2HP"
+      ]
+    },
+    {
+      "name": "Difful Surface Solar Pump",
+      "model": "Surface Water Pump",
+      "category": "Solar Pumps",
+      "use": "Surface pumping for shallow wells, rivers, and ponds",
+      "image": "/uploads/difful-surface-solar-pump.jpg",
+      "features": [
+        "Easy maintenance",
+        "Durable build",
+        "Battery-free"
+      ],
+      "specs": [
+        "Surface mount",
+        "High flow rate"
+      ]
+    },
+    {
+      "name": "SDC Brushless Solar Pump",
+      "model": "SDC Series",
+      "category": "Solar Pumps",
+      "use": "Stainless steel deep well pump for reliable solar irrigation",
+      "image": "/uploads/solar-pump-redbud.png",
+      "features": [
+        "Brushless DC motor",
+        "Stainless steel"
+      ],
+      "specs": [
+        "Solar powered",
+        "Deep well"
+      ]
+    },
+    {
+      "name": "SPC Brushless Solar Pump",
+      "model": "SPC Series",
+      "category": "Solar Pumps",
+      "use": "High-performance solar pump for agricultural water supply",
+      "image": "/uploads/solar-surface-pump.png",
+      "features": [
+        "Brushless DC motor",
+        "Durable"
+      ],
+      "specs": [
+        "Solar powered",
+        "High flow"
+      ]
+    },
+    {
+      "name": "Difful DC Surface Pump",
+      "model": "DC Brushless",
+      "category": "Solar Pumps",
+      "use": "DC brushless surface pump for off-grid water systems",
+      "image": "/uploads/difful-dc-surface-pump.png",
+      "features": [
+        "DC Brushless",
+        "Surface mount"
+      ],
+      "specs": [
+        "Solar pump",
+        "Off-grid"
+      ]
+    },
+    {
+      "name": "Difful Solar Pool Pump",
+      "model": "Pool Series",
+      "category": "Solar Pumps",
+      "use": "Solar-powered pool circulation and maintenance pump",
+      "image": "/uploads/solar-pool-pump.png",
+      "features": [
+        "Pool circulation",
+        "Low noise"
+      ],
+      "specs": [
+        "Solar pump",
+        "Pool rated"
+      ]
+    },
+    {
+      "name": "Difful Solar Irrigation Pump",
+      "model": "Ag Series",
+      "category": "Solar Pumps",
+      "use": "Agricultural irrigation pump for farms and greenhouses",
+      "image": "/uploads/difful-solar-irrigation-pump.png",
+      "features": [
+        "Irrigation pump",
+        "High capacity"
+      ],
+      "specs": [
+        "Solar pump",
+        "Agriculture"
+      ]
+    },
+    {
+      "name": "Difful High-Flow Surface Pump",
+      "model": "Flow Series",
+      "category": "Solar Pumps",
+      "use": "High flow rate surface pump for large-scale water transfer",
+      "image": "/uploads/difful-high-flow-surface-pump.png",
+      "features": [
+        "High flow rate",
+        "Surface mount"
+      ],
+      "specs": [
+        "Solar pump",
+        "Industrial"
+      ]
+    },
+    {
+      "name": "AC/DC Hybrid Solar Pump",
+      "model": "Hybrid Series",
+      "category": "Solar Pumps",
+      "use": "Hybrid AC/DC solar water pump for flexible power sources",
+      "image": "/uploads/ac-dc-hybrid-solar-pump.png",
+      "features": [
+        "AC/DC hybrid",
+        "Versatile power"
+      ],
+      "specs": [
+        "Solar/Grid",
+        "Dual input"
+      ]
+    },
+    {
+      "name": "High Speed Deep Well Pump",
+      "model": "Deep Well Series",
+      "category": "Solar Pumps",
+      "use": "High speed deep well pump for boreholes up to 200m",
+      "image": "/uploads/high-speed-deep-well-pump.jpg",
+      "features": [
+        "High speed",
+        "Deep well rated"
+      ],
+      "specs": [
+        "200m depth",
+        "Solar powered"
+      ]
+    },
+    {
+      "name": "S500 Solar Light",
+      "model": "S500",
+      "category": "Home & Portable Lighting",
+      "use": "Solar light for home, reading, and emergency use",
+      "image": "/uploads/s500-solar-light.jpg",
+      "features": [
+        "Multi-purpose",
+        "Bright LED",
+        "Portable"
+      ],
+      "specs": [
+        "Solar rechargeable"
+      ]
+    },
+    {
+      "name": "S200 Solar Light",
+      "model": "S200",
+      "category": "Home & Portable Lighting",
+      "use": "Always stay connected, night or day",
+      "image": "/uploads/s200-solar-light.png",
+      "features": [
+        "Compact design",
+        "Long battery life"
+      ],
+      "specs": [
+        "Integrated panel"
+      ]
+    },
+    {
+      "name": "T200R Portable Solar Lantern",
+      "model": "T200R",
+      "category": "Home & Portable Lighting",
+      "use": "Dual light and mobile charging in one device",
+      "image": "/uploads/t200r-portable-solar-lantern.jpg",
+      "features": [
+        "Mobile phone charging",
+        "Dual light modes"
+      ],
+      "specs": [
+        "USB output",
+        "Portable"
+      ]
+    },
+    {
+      "name": "T200 Portable Solar Lantern",
+      "model": "T200",
+      "category": "Home & Portable Lighting",
+      "use": "Portable lantern and phone charger for camping",
+      "image": "/uploads/t200-portable-solar-lantern.png",
+      "features": [
+        "Camping ready",
+        "Phone charger"
+      ],
+      "specs": [
+        "Solar rechargeable"
+      ]
+    },
+    {
+      "name": "SunAce II 610",
+      "model": "Solar LED Lantern",
+      "category": "Home & Portable Lighting",
+      "use": "Solar LED lantern with remote control",
+      "image": "/uploads/sunace-ii-610.jpg",
+      "features": [
+        "Remote control",
+        "Lighting Global certified"
+      ],
+      "specs": [
+        "LED",
+        "Remote operated"
+      ]
+    },
+    {
+      "name": "S3 Portable Solar Lantern",
+      "model": "S3",
+      "category": "Home & Portable Lighting",
+      "use": "Study lamp, emergency light, portable solar lamp",
+      "image": "/uploads/s3-portable-solar-lantern.jpg",
+      "features": [
+        "Study friendly",
+        "Emergency lighting"
+      ],
+      "specs": [
+        "Compact",
+        "Lightweight"
+      ]
+    },
+    {
+      "name": "Sun King Home 120",
+      "model": "Solar Home System",
+      "category": "Solar Home Systems",
+      "use": "Solar ceiling lights with inbuilt battery and USB port",
+      "image": "/uploads/sun-king-home-120.jpg",
+      "features": [
+        "Inbuilt battery",
+        "Ceiling lights",
+        "USB charging"
+      ],
+      "specs": [
+        "Multi-light",
+        "Phone charging"
+      ]
+    },
+    {
+      "name": "Sun King HomePlus",
+      "model": "HomePlus",
+      "category": "Solar Home Systems",
+      "use": "Complete home lighting system with solar charging",
+      "image": "/uploads/solar-home-system.png",
+      "features": [
+        "Reliable lighting",
+        "Solar charging"
+      ],
+      "specs": [
+        "Home system",
+        "Multi-room"
+      ]
+    },
+    {
+      "name": "Sun King HomePlus Pro",
+      "model": "HomePlus Pro",
+      "category": "Solar Home Systems",
+      "use": "Advanced solar home system with extended battery life",
+      "image": "/uploads/solar-home-system.png",
+      "features": [
+        "Advanced features",
+        "Extended battery"
+      ],
+      "specs": [
+        "Home system",
+        "Pro grade"
+      ]
+    },
+    {
+      "name": "Sun King HomePlus Max",
+      "model": "HomePlus Max",
+      "category": "Solar Home Systems",
+      "use": "Maximum capacity solar home system for large families",
+      "image": "/uploads/solar-home-system.png",
+      "features": [
+        "Max capacity",
+        "Large panel"
+      ],
+      "specs": [
+        "Home system",
+        "Max power"
+      ]
+    },
+    {
+      "name": "Solar Powered TV Set",
+      "model": "Home 500X TV",
+      "category": "Solar Home Systems",
+      "use": "High-efficiency DC TV set for off-grid entertainment",
+      "image": "/uploads/solar-powered-tv-set.webp",
+      "features": [
+        "Low power draw",
+        "High definition"
+      ],
+      "specs": [
+        "DC powered",
+        "LED display"
+      ]
+    },
+    {
+      "name": "Sun King HomePlus Max + 24\" TV",
+      "model": "TV Bundle 24\"",
+      "category": "Solar Home Systems",
+      "use": "Solar home system bundled with 24-inch HD TV",
+      "image": "/uploads/sun-king-homeplus-max-24-tv.webp",
+      "features": [
+        "Includes 24-inch TV",
+        "Solar charging"
+      ],
+      "specs": [
+        "Home system",
+        "TV bundle"
+      ]
+    },
+    {
+      "name": "18Ah Solar Sewing Machine Pack",
+      "model": "HS2B-230_LT4_SEWB",
+      "category": "Solar Appliances",
+      "use": "12V DC solar sewing machine system with 110W panel",
+      "image": "/uploads/solar-sewing-machine-pack.jpg",
+      "features": [
+        "110W solar panel",
+        "18Ah lithium battery",
+        "Metallic sewing machine"
+      ],
+      "specs": [
+        "12V DC",
+        "60 stitch patterns",
+        "LED tube light"
+      ]
+    }
+  ]
+}

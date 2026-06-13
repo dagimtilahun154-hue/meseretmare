@@ -1,0 +1,34 @@
+{
+  "partners": [
+    {
+      "name": "Ministry of Water and Energy",
+      "subtitle": "Regulatory & policy alignment",
+      "description": "Rural electrification targets and standard compliance for solar imports across Ethiopia."
+    },
+    {
+      "name": "GIZ Ethiopia",
+      "subtitle": "Development partner",
+      "description": "Technical capacity building, field training, and rural distribution network support."
+    },
+    {
+      "name": "SNV Netherlands",
+      "subtitle": "Agricultural solar sponsor",
+      "description": "Solar water pump projects for smallholder farmers and irrigation output."
+    },
+    {
+      "name": "Development Bank of Ethiopia",
+      "subtitle": "Financing & credit line partner",
+      "description": "Credit facilities, forex allocation support, and rural customer financing models."
+    },
+    {
+      "name": "GOGLA",
+      "subtitle": "Global association member",
+      "description": "Quality standards and customer protection principles for off-grid solar."
+    },
+    {
+      "name": "CARE Ethiopia & MFIs",
+      "subtitle": "Micro-credit & community support",
+      "description": "Credit options for low-income farmers buying solar kits and productive-use systems."
+    }
+  ]
+}

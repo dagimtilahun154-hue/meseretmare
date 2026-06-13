@@ -1,0 +1,408 @@
+backend:
+  name: github
+  repo: dagimtilahun154-hue/meseretmare
+  branch: main
+  base_url: https://meseretmare.com
+  auth_endpoint: DM154/oauth/index.php
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "website_content"
+    label: "Website Content"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "site_settings"
+        label: "Site Settings, Contact & Footer"
+        file: "src/data/site.json"
+        format: "json"
+        fields:
+          - name: "brand"
+            label: "Brand"
+            widget: "object"
+            fields:
+              - {label: "Brand Name", name: "name", widget: "string"}
+              - {label: "Brand Subtitle", name: "subtitle", widget: "string"}
+              - {label: "Logo Image", name: "logo", widget: "image"}
+          - name: "media"
+            label: "Global Images"
+            widget: "object"
+            fields:
+              - {label: "Homepage Hero Image", name: "home_hero_image", widget: "image"}
+              - {label: "Inner Page Hero Image", name: "page_hero_image", widget: "image"}
+          - name: "navigation"
+            label: "Navigation Labels"
+            widget: "list"
+            allow_add: false
+            summary: "{{fields.id}}: {{fields.label}}"
+            fields:
+              - {label: "Route ID", name: "id", widget: "hidden"}
+              - {label: "Menu Label", name: "label", widget: "string"}
+          - name: "header_cta"
+            label: "Header Button"
+            widget: "object"
+            fields:
+              - {label: "Button Label", name: "label", widget: "string"}
+              - label: "Button Target"
+                name: "target"
+                widget: "select"
+                options: ["home", "about", "services", "products", "news", "contact"]
+          - name: "partner_logos"
+            label: "Partner Logo Ribbon"
+            widget: "list"
+            summary: "{{fields.name}}"
+            fields:
+              - {label: "Partner Name", name: "name", widget: "string"}
+              - {label: "Logo", name: "logo", widget: "image"}
+          - name: "contact"
+            label: "Contact & Form"
+            widget: "object"
+            fields:
+              - {label: "Primary Phone for Call Links", name: "primary_phone", widget: "string"}
+              - {label: "Displayed Phone Text", name: "phone_display", widget: "string"}
+              - {label: "Phone CTA Label", name: "phone_cta_label", widget: "string"}
+              - {label: "Phone CTA Display Number", name: "phone_cta_display", widget: "string"}
+              - {label: "Primary Email", name: "primary_email", widget: "string"}
+              - {label: "Displayed Emails", name: "email_display", widget: "text"}
+              - {label: "Short Address", name: "address_short", widget: "string"}
+              - {label: "Displayed Address", name: "address_display", widget: "text"}
+              - name: "form"
+                label: "Contact Form Text"
+                widget: "object"
+                fields:
+                  - {label: "Name Label", name: "name_label", widget: "string"}
+                  - {label: "Name Placeholder", name: "name_placeholder", widget: "string"}
+                  - {label: "Phone Label", name: "phone_label", widget: "string"}
+                  - {label: "Phone Placeholder", name: "phone_placeholder", widget: "string"}
+                  - {label: "Need Label", name: "need_label", widget: "string"}
+                  - name: "need_options"
+                    label: "Need Options"
+                    widget: "list"
+                    field: {label: "Option", name: "option", widget: "string"}
+                  - {label: "Details Label", name: "details_label", widget: "string"}
+                  - {label: "Details Placeholder", name: "details_placeholder", widget: "text"}
+                  - {label: "Submit Button Label", name: "submit_label", widget: "string"}
+                  - {label: "Submitted State Label", name: "sent_label", widget: "string"}
+          - name: "social_links"
+            label: "Social Links"
+            widget: "list"
+            summary: "{{fields.label}}"
+            fields:
+              - {label: "Label", name: "label", widget: "string"}
+              - {label: "URL", name: "url", widget: "string"}
+          - name: "footer"
+            label: "Footer"
+            widget: "object"
+            fields:
+              - {label: "About Heading", name: "about_heading", widget: "string"}
+              - {label: "About Text", name: "about_text", widget: "text"}
+              - {label: "Links Heading", name: "links_heading", widget: "string"}
+              - {label: "Contact Navigation Label", name: "contact_nav_label", widget: "string"}
+              - {label: "Contact Heading", name: "contact_heading", widget: "string"}
+              - {label: "Copyright / Tagline", name: "copyright_text", widget: "string"}
+
+      - name: "homepage_sections"
+        label: "Homepage Sections"
+        file: "src/data/homepage.json"
+        format: "json"
+        fields:
+          - name: "hero"
+            label: "Hero"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Subtitle", name: "subtitle", widget: "text"}
+              - name: "primary_button"
+                label: "Primary Button"
+                widget: "object"
+                fields:
+                  - {label: "Button Label", name: "label", widget: "string"}
+                  - label: "Button Target"
+                    name: "target"
+                    widget: "select"
+                    options: ["home", "about", "services", "products", "news", "contact"]
+          - name: "capabilities"
+            label: "Capability Band"
+            widget: "object"
+            fields:
+              - {label: "Heading", name: "heading", widget: "string"}
+              - name: "items"
+                label: "Capability Items"
+                widget: "list"
+                summary: "{{fields.label}}"
+                fields:
+                  - {label: "Icon", name: "icon", widget: "select", options: ["ShieldCheck", "Droplet", "Wrench", "Zap", "Award", "BatteryCharging", "Users"]}
+                  - {label: "Label", name: "label", widget: "string"}
+                  - {label: "Value", name: "value", widget: "string"}
+          - name: "featured"
+            label: "Featured Products Heading"
+            widget: "object"
+            fields:
+              - {label: "Heading", name: "heading", widget: "string"}
+          - name: "field_proof"
+            label: "Field Proof / Gallery Rows"
+            widget: "object"
+            fields:
+              - {label: "Heading", name: "heading", widget: "string"}
+              - name: "items"
+                label: "Rows"
+                widget: "list"
+                summary: "{{fields.title}}"
+                fields:
+                  - {label: "Title", name: "title", widget: "string"}
+                  - {label: "Detail", name: "detail", widget: "text"}
+                  - {label: "Image", name: "image", widget: "image"}
+          - name: "achievements"
+            label: "Achievements"
+            widget: "object"
+            fields:
+              - {label: "Heading", name: "heading", widget: "string"}
+              - name: "items"
+                label: "Achievement Cards"
+                widget: "list"
+                summary: "{{fields.title}}"
+                fields:
+                  - {label: "Icon", name: "icon", widget: "select", options: ["Award", "Users", "Target", "ShieldCheck", "Droplet", "Wrench", "Zap"]}
+                  - {label: "Title", name: "title", widget: "string"}
+                  - {label: "Description", name: "description", widget: "text"}
+          - name: "operating_model"
+            label: "Operating Model"
+            widget: "object"
+            fields:
+              - {label: "Heading", name: "heading", widget: "string"}
+              - name: "steps"
+                label: "Steps"
+                widget: "list"
+                summary: "{{fields.number}} {{fields.label}}"
+                fields:
+                  - {label: "Number", name: "number", widget: "string"}
+                  - {label: "Label", name: "label", widget: "string"}
+          - name: "latest_news"
+            label: "Latest News Section"
+            widget: "object"
+            fields:
+              - {label: "Heading", name: "heading", widget: "string"}
+              - {label: "Button Label", name: "button_label", widget: "string"}
+              - {label: "Button Target", name: "target", widget: "select", options: ["news"]}
+              - {label: "Number of Posts", name: "count", widget: "number", value_type: "int", min: 1, max: 12}
+          - name: "final_cta"
+            label: "Final Call To Action"
+            widget: "object"
+            fields:
+              - {label: "Heading", name: "heading", widget: "string"}
+              - {label: "Button Label", name: "button_label", widget: "string"}
+              - label: "Button Target"
+                name: "target"
+                widget: "select"
+                options: ["home", "about", "services", "products", "news", "contact"]
+
+      - name: "page_copy"
+        label: "Page Copy & Headers"
+        file: "src/data/copy.json"
+        format: "json"
+        fields:
+          - name: "home"
+            label: "Legacy Homepage Text"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Hero Title", name: "hero_title", widget: "string"}
+              - {label: "Hero Subtitle", name: "hero_subtitle", widget: "text"}
+              - {label: "Achievements Title", name: "achievements_title", widget: "string"}
+              - {label: "Achievement 1 Title", name: "achievement1_title", widget: "string"}
+              - {label: "Achievement 1 Description", name: "achievement1_desc", widget: "text"}
+              - {label: "Achievement 2 Title", name: "achievement2_title", widget: "string"}
+              - {label: "Achievement 2 Description", name: "achievement2_desc", widget: "text"}
+              - {label: "Achievement 3 Title", name: "achievement3_title", widget: "string"}
+              - {label: "Achievement 3 Description", name: "achievement3_desc", widget: "text"}
+              - {label: "Assembly Title", name: "assembly_title", widget: "string"}
+              - {label: "Assembly Description", name: "assembly_desc", widget: "text"}
+          - name: "about"
+            label: "About Page"
+            widget: "object"
+            fields:
+              - {label: "Page Title", name: "title", widget: "string"}
+              - {label: "Intro Paragraph", name: "intro", widget: "text"}
+              - {label: "Signature Title", name: "signature_title", widget: "string"}
+              - {label: "Signature Text", name: "signature_text", widget: "text"}
+              - {label: "Intro Section Title", name: "intro_title", widget: "string"}
+              - name: "intro_paragraphs"
+                label: "Intro Section Paragraphs"
+                widget: "list"
+                field: {label: "Paragraph", name: "paragraph", widget: "text"}
+              - {label: "Mission Title", name: "mission_title", widget: "string"}
+              - {label: "Mission Description", name: "mission_description", widget: "text"}
+              - {label: "Vision Title", name: "vision_title", widget: "string"}
+              - {label: "Vision Description", name: "vision_description", widget: "text"}
+              - {label: "Values Heading", name: "values_heading", widget: "string"}
+              - {label: "Values Intro", name: "values_intro", widget: "text"}
+              - {label: "Timeline Heading", name: "timeline_heading", widget: "string"}
+              - {label: "Timeline Intro", name: "timeline_intro", widget: "text"}
+          - name: "services"
+            label: "Services Page"
+            widget: "object"
+            fields:
+              - {label: "Page Title", name: "title", widget: "string"}
+              - {label: "Intro Paragraph", name: "intro", widget: "text"}
+              - {label: "Signature Title", name: "signature_title", widget: "string"}
+              - {label: "Signature Text", name: "signature_text", widget: "text"}
+              - name: "flow_steps"
+                label: "Service Flow Steps"
+                widget: "list"
+                field: {label: "Step", name: "step", widget: "string"}
+          - name: "products"
+            label: "Products Page"
+            widget: "object"
+            fields:
+              - {label: "Page Title", name: "title", widget: "string"}
+              - {label: "Intro Paragraph", name: "intro", widget: "text"}
+              - {label: "Signature Title", name: "signature_title", widget: "string"}
+              - {label: "Signature Text", name: "signature_text", widget: "text"}
+              - {label: "Assembly Title", name: "assembly_title", widget: "string"}
+              - {label: "Assembly Description", name: "assembly_description", widget: "text"}
+          - name: "news"
+            label: "News Page"
+            widget: "object"
+            fields:
+              - {label: "Page Title", name: "title", widget: "string"}
+              - {label: "Intro Paragraph", name: "intro", widget: "text"}
+              - {label: "Signature Title", name: "signature_title", widget: "string"}
+              - {label: "Signature Text", name: "signature_text", widget: "text"}
+          - name: "contact"
+            label: "Contact Page"
+            widget: "object"
+            fields:
+              - {label: "Page Title", name: "title", widget: "string"}
+              - {label: "Intro Paragraph", name: "intro", widget: "text"}
+
+      - name: "featured_section"
+        label: "Homepage Featured Categories"
+        file: "src/data/featured.json"
+        format: "json"
+        fields:
+          - name: "featured"
+            label: "Featured Items"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Meta / Subtitle", name: "meta", widget: "string"}
+              - {label: "Image", name: "image", widget: "image"}
+              - {label: "Icon", name: "icon", widget: "select", options: ["Droplet", "BatteryCharging", "Zap", "Wrench", "HeartPulse", "GraduationCap", "Users"]}
+
+      - name: "news_section"
+        label: "News & Gallery Posts"
+        file: "src/data/news.json"
+        format: "json"
+        fields:
+          - name: "posts"
+            label: "Posts List"
+            widget: "list"
+            summary: "{{fields.title}} ({{fields.category}})"
+            fields:
+              - {label: "ID", name: "id", widget: "number", value_type: "int"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Publish Date", name: "date", widget: "string"}
+              - {label: "Category", name: "category", widget: "select", options: ["News", "Exhibition", "Partnership", "Field Work", "Gallery"]}
+              - {label: "Image", name: "image", widget: "image"}
+              - {label: "Excerpt", name: "excerpt", widget: "text"}
+              - name: "content"
+                label: "Content Paragraphs"
+                widget: "list"
+                field: {name: "paragraph", label: "Paragraph Text", widget: "text"}
+
+      - name: "products_section"
+        label: "Products List"
+        file: "public/data/products.json"
+        format: "json"
+        fields:
+          - name: "products"
+            label: "Products List"
+            widget: "list"
+            summary: "{{fields.name}} ({{fields.model}})"
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Model", name: "model", widget: "string"}
+              - {label: "Category", name: "category", widget: "string"}
+              - {label: "Use Summary", name: "use", widget: "text"}
+              - {label: "Full Details", name: "details", widget: "text", required: false}
+              - {label: "Image", name: "image", widget: "image"}
+              - name: "features"
+                label: "Features List"
+                widget: "list"
+                field: {name: "feature", label: "Feature Description", widget: "string"}
+              - name: "specs"
+                label: "Specifications List"
+                widget: "list"
+                field: {name: "spec", label: "Spec (e.g. 1500W)", widget: "string"}
+
+      - name: "services_section"
+        label: "Services Offered"
+        file: "src/data/services.json"
+        format: "json"
+        fields:
+          - name: "services"
+            label: "Services"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Category", name: "category", widget: "string"}
+              - {label: "Detail", name: "detail", widget: "text"}
+              - {label: "Icon", name: "icon", widget: "select", options: ["Droplet", "FileSearch", "Wrench", "HeartPulse", "GraduationCap", "Users", "Zap", "Award", "BatteryCharging", "Clock"]}
+
+      - name: "metrics_section"
+        label: "Homepage Metrics Dock"
+        file: "src/data/metrics.json"
+        format: "json"
+        fields:
+          - name: "metrics"
+            label: "Metrics Items"
+            widget: "list"
+            summary: "{{fields.value}} - {{fields.label}}"
+            fields:
+              - {label: "Value (e.g. 10k+)", name: "value", widget: "string"}
+              - {label: "Label (e.g. Systems reach)", name: "label", widget: "string"}
+
+      - name: "partners_section"
+        label: "Detailed Partners Page Content"
+        file: "src/data/partners.json"
+        format: "json"
+        fields:
+          - name: "partners"
+            label: "Partners List"
+            widget: "list"
+            summary: "{{fields.name}}"
+            fields:
+              - {label: "Partner Name", name: "name", widget: "string"}
+              - {label: "Subtitle / Role", name: "subtitle", widget: "string"}
+              - {label: "Detailed Description", name: "description", widget: "text"}
+
+      - name: "values_section"
+        label: "Company Core Values"
+        file: "src/data/values.json"
+        format: "json"
+        fields:
+          - name: "values"
+            label: "Values List"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+
+      - name: "timeline_section"
+        label: "About Page Timeline"
+        file: "src/data/timeline.json"
+        format: "json"
+        fields:
+          - name: "timeline"
+            label: "Timeline Milestones"
+            widget: "list"
+            summary: "{{fields.year}}: {{fields.text}}"
+            fields:
+              - {label: "Year", name: "year", widget: "string"}
+              - {label: "Milestone Details", name: "text", widget: "text"}

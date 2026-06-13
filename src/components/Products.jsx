@@ -1,100 +1,64 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useInView } from '../hooks/useInView';
-import { Droplet, Lightbulb, Tv, ShieldCheck, Zap, Factory } from 'lucide-react';
+import { Factory } from 'lucide-react';
+import fallbackProductsData from '../data/products.json';
 
 export default function Products() {
   const [ref, isVisible] = useInView({ threshold: 0.05 });
-  const [activeFilter, setActiveFilter] = useState('all');
+  const [products, setProducts] = useState(fallbackProductsData.products);
+  const [activeFilter, setActiveFilter] = useState('All Products');
+  const [loading, setLoading] = useState(true);
 
-  const products = [
-    {
-      id: 1,
-      name: 'Difful Submersible Solar Pump',
-      model: '1500W 110V Motor DC',
-      category: 'pumps',
-      tag: 'Agriculture & Drinking Water',
-      certified: true,
-      features: [
-        'Brushless DC high-efficiency motor',
-        'Automatic dry-run protection',
-        'Stainless steel casing & pump body',
-        'MPPT controller for maximum solar power usage',
-        'Includes water level sensors'
-      ],
-      specs: { power: '1500 Watts', voltage: '110 Volts DC', depth: 'Up to 120m', flow: '6.5 m³/hour' },
-      icon: <Droplet size={32} style={{ color: 'var(--amber-600)' }} />
-    },
-    {
-      id: 2,
-      name: 'Sun King Home 120 System',
-      model: 'SK-120 Multi-Bulb Home System',
-      category: 'home-systems',
-      tag: 'Home Power & Lighting',
-      certified: true,
-      features: [
-        '3 ultra-bright LED hanging lamps',
-        'USB charging ports for multiple mobile phones',
-        'Long-life Lithium Ferro-Phosphate battery',
-        '12W high-efficiency crystalline solar panel',
-        'Real-time charging & battery status monitor'
-      ],
-      specs: { runtime: 'Up to 24 hours', brightness: '600 Lumens total', battery: 'LFP 12,000mAh', panel: '12W Crystalline' },
-      icon: <Zap size={32} style={{ color: 'var(--amber-600)' }} />
-    },
-    {
-      id: 3,
-      name: 'Sun King T200R Portable Lantern',
-      model: 'T200R with Remote Control',
-      category: 'lighting',
-      tag: 'Portable Lighting',
-      certified: true,
-      features: [
-        'Handheld lantern with built-in solar panel & kickstand',
-        'Wireless remote control for convenient operation',
-        'Durable, drop-proof, water-resistant casing',
-        'USB output port for emergency phone charging',
-        '3 power modes (Low, Medium, Turbo)'
-      ],
-      specs: { runtime: 'Up to 30 hours', brightness: '200 Lumens', charging: 'Solar & AC adapter', utility: 'Mobile USB out' },
-      icon: <Lightbulb size={32} style={{ color: 'var(--amber-600)' }} />
-    },
-    {
-      id: 4,
-      name: '32" Solar Powered LED TV Set',
-      model: 'High-Efficiency DC TV',
-      category: 'appliances',
-      tag: 'Appliances & Education',
-      certified: false,
-      features: [
-        'Ultra-low power consumption (25W energy-draw)',
-        'Built-in DVB-T2/S2 satellite receiver',
-        'Full HD resolution with energy-saver LED panel',
-        'USB media playback (Videos, Music, Photos)',
-        'Includes dedicated 50W solar panel and solar control hub'
-      ],
-      specs: { screen: '32 inch LED', power: '25W DC 12V', tuner: 'Satellite & Terrestrial', inputs: 'HDMI, USB, AV' },
-      icon: <Tv size={32} style={{ color: 'var(--amber-600)' }} />
-    },
-    {
-      id: 5,
-      name: 'Difful Surface Solar Pump',
-      model: '500W DC Surface Pump',
-      category: 'pumps',
-      tag: 'Shallow Irrigation',
-      certified: true,
-      features: [
-        'Ideal for shallow wells, rivers, and storage ponds',
-        'Quiet brushless DC motor with simple setup',
-        'Cast iron body with rust-resistant finish',
-        'Runs directly on solar panel without batteries',
-        'Over-voltage and low-voltage protection'
-      ],
-      specs: { power: '500 Watts', voltage: '48 Volts DC', lift: 'Up to 35m', flow: '3.0 m³/hour' },
-      icon: <Droplet size={32} style={{ color: 'var(--amber-600)' }} />
+  useEffect(() => {
+    async function loadProducts() {
+      try {
+        // 1. Try to get repo name from config.yml
+        const configRes = await fetch('/DM154/config.yml');
+        if (configRes.ok) {
+          const configText = await configRes.text();
+          const repoMatch = configText.match(/repo:\s*["']?([^"'\s]+)/);
+          
+          if (repoMatch && repoMatch[1] && repoMatch[1] !== 'owner/repo') {
+            const repo = repoMatch[1].trim();
+            // 2. Fetch directly from GitHub raw URL so updates are instant!
+            const githubUrl = `https://raw.githubusercontent.com/${repo}/main/public/data/products.json`;
+            const ghRes = await fetch(githubUrl);
+            if (ghRes.ok) {
+              const ghData = await ghRes.json();
+              if (ghData && Array.isArray(ghData.products)) {
+                setProducts(ghData.products);
+                setLoading(false);
+                return;
+              }
+            }
+          }
+        }
+      } catch (err) {
+        console.warn('Failed to load products from GitHub, falling back to local storage:', err);
+      }
+
+      // 3. Fallback: load local products.json from server
+      try {
+        const localRes = await fetch('/data/products.json');
+        if (localRes.ok) {
+          const localData = await localRes.json();
+          if (localData && Array.isArray(localData.products)) {
+            setProducts(localData.products);
+          }
+        }
+      } catch (err) {
+        console.error('Failed to load local products:', err);
+      }
+      setLoading(false);
     }
-  ];
 
-  const filteredProducts = activeFilter === 'all'
+    loadProducts();
+  }, []);
+
+  // Extract unique categories from the products data
+  const categories = ['All Products', ...new Set(products.map(p => p.category))];
+
+  const filteredProducts = activeFilter === 'All Products'
     ? products
     : products.filter(p => p.category === activeFilter);
 
@@ -118,30 +82,24 @@ export default function Products() {
           marginBottom: 'var(--space-10)',
           flexWrap: 'wrap'
         }}>
-          {[
-            { id: 'all', name: 'All Products' },
-            { id: 'pumps', name: 'Solar Water Pumps' },
-            { id: 'home-systems', name: 'Solar Home Systems' },
-            { id: 'lighting', name: 'Portable Lighting' },
-            { id: 'appliances', name: 'Solar TV & Appliances' }
-          ].map((filter) => (
+          {categories.map((filter) => (
             <button
-              key={filter.id}
-              onClick={() => setActiveFilter(filter.id)}
+              key={filter}
+              onClick={() => setActiveFilter(filter)}
               style={{
                 padding: 'var(--space-2) var(--space-5)',
                 fontSize: 'var(--text-sm)',
                 fontWeight: 600,
                 borderRadius: 'var(--radius-full)',
                 border: '1.5px solid',
-                borderColor: activeFilter === filter.id ? 'var(--amber-500)' : 'var(--border-light)',
-                backgroundColor: activeFilter === filter.id ? 'var(--amber-50)' : 'var(--white)',
-                color: activeFilter === filter.id ? 'var(--amber-700)' : 'var(--slate-600)',
+                borderColor: activeFilter === filter ? 'var(--amber-500)' : 'var(--border-light)',
+                backgroundColor: activeFilter === filter ? 'var(--amber-50)' : 'var(--white)',
+                color: activeFilter === filter ? 'var(--amber-700)' : 'var(--slate-600)',
                 transition: 'all var(--transition-base)',
                 cursor: 'pointer'
               }}
             >
-              {filter.name}
+              {filter}
             </button>
           ))}
         </div>
@@ -151,119 +109,79 @@ export default function Products() {
           ref={ref}
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
-            gap: 'var(--space-8)',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
+            gap: '12px',
             opacity: isVisible ? 1 : 0,
             transform: isVisible ? 'translateY(0)' : 'translateY(25px)',
             transition: 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)'
           }}
         >
-          {filteredProducts.map((p) => (
+          {filteredProducts.map((p, index) => (
             <div 
-              key={p.id} 
+              key={index} 
               className="card"
               style={{
                 display: 'flex',
                 flexDirection: 'column',
-                alignItems: 'stretch',
-                textAlign: 'left',
-                padding: 'var(--space-8)',
-                height: '100%',
-                position: 'relative',
-                border: '1px solid var(--border-light)'
-              }}
-            >
-              {/* Product Header */}
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', marginBottom: 'var(--space-5)' }}>
-                <div style={{
-                  width: '64px',
-                  height: '64px',
-                  borderRadius: 'var(--radius-xl)',
-                  backgroundColor: 'var(--amber-50)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}>
-                  {p.icon}
-                </div>
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 'var(--space-1)' }}>
-                  <span style={{
-                    fontSize: '10px',
-                    fontWeight: 700,
-                    backgroundColor: 'var(--navy-50)',
-                    color: 'var(--navy-700)',
-                    padding: 'var(--space-1) var(--space-2)',
-                    borderRadius: 'var(--radius-sm)',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.05em'
-                  }}>{p.tag}</span>
-                  {p.certified && (
-                    <span style={{
-                      fontSize: '9px',
-                      fontWeight: 700,
-                      backgroundColor: '#DEF7EC',
-                      color: '#03543F',
-                      padding: 'var(--space-1) var(--space-2)',
-                      borderRadius: 'var(--radius-sm)',
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '4px'
-                    }}>
-                      <ShieldCheck size={10} />
-                      Lighting Global
-                    </span>
-                  )}
-                </div>
-              </div>
-
-              {/* Title & Model */}
-              <div style={{ marginBottom: 'var(--space-4)' }}>
-                <h3 style={{
-                  fontFamily: 'var(--font-display)',
-                  fontSize: 'var(--text-xl)',
-                  fontWeight: 700,
-                  color: 'var(--navy-900)'
-                }}>{p.name}</h3>
-                <span style={{ fontSize: 'var(--text-xs)', color: 'var(--slate-400)', fontWeight: 500 }}>{p.model}</span>
-              </div>
-
-              {/* Features List */}
-              <div style={{ flexGrow: 1, marginBottom: 'var(--space-6)' }}>
-                <h4 style={{ fontSize: 'var(--text-xs)', fontWeight: 700, textTransform: 'uppercase', color: 'var(--navy-600)', letterSpacing: '0.05em', marginBottom: 'var(--space-2)' }}>Key Features</h4>
-                <ul style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
-                  {p.features.map((feat, index) => (
-                    <li key={index} style={{
-                      fontSize: 'var(--text-sm)',
-                      color: 'var(--slate-600)',
-                      lineHeight: 1.4,
-                      display: 'flex',
-                      alignItems: 'start',
-                      gap: 'var(--space-2)'
-                    }}>
-                      <span style={{ color: 'var(--amber-500)', marginTop: '3px', fontWeight: 'bold' }}>•</span>
-                      {feat}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Technical Specs Table */}
-              <div style={{
-                backgroundColor: 'var(--slate-50)',
-                padding: 'var(--space-4)',
-                borderRadius: 'var(--radius-md)',
+                padding: '0',
+                overflow: 'hidden',
                 border: '1px solid var(--border-light)',
-                marginBottom: 'var(--space-4)'
+                borderRadius: '10px',
+                cursor: 'pointer',
+                transition: 'transform 0.2s, box-shadow 0.2s'
+              }}
+              onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = '0 6px 20px rgba(0,0,0,0.08)'; }}
+              onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; }}
+            >
+              {/* Product Image — dominant */}
+              <div style={{
+                width: '100%',
+                height: '140px',
+                backgroundColor: '#f8f9fa',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                overflow: 'hidden'
               }}>
-                <h4 style={{ fontSize: 'var(--text-xs)', fontWeight: 700, textTransform: 'uppercase', color: 'var(--navy-600)', letterSpacing: '0.05em', marginBottom: 'var(--space-2)' }}>Specifications</h4>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-2)' }}>
-                  {Object.entries(p.specs).map(([key, val]) => (
-                    <div key={key} style={{ display: 'flex', flexDirection: 'column' }}>
-                      <span style={{ fontSize: '9px', textTransform: 'uppercase', color: 'var(--slate-400)', fontWeight: 600 }}>{key}</span>
-                      <span style={{ fontSize: 'var(--text-xs)', fontWeight: 600, color: 'var(--navy-900)' }}>{val}</span>
-                    </div>
-                  ))}
-                </div>
+                <img 
+                  src={p.image} 
+                  alt={p.name} 
+                  loading="lazy"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'contain',
+                    padding: '8px'
+                  }}
+                  onError={e => { e.target.style.display = 'none'; e.target.parentNode.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;color:#94a3b8;font-size:12px;">No image</div>'; }}
+                />
+              </div>
+
+              {/* Compact text area */}
+              <div style={{ padding: '10px 12px 12px' }}>
+                <span style={{
+                  display: 'inline-block',
+                  fontSize: '9px',
+                  fontWeight: 700,
+                  backgroundColor: 'var(--amber-50, #fffbeb)',
+                  color: 'var(--amber-700, #b45309)',
+                  padding: '2px 6px',
+                  borderRadius: '3px',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.04em',
+                  marginBottom: '4px'
+                }}>{p.category}</span>
+                <h3 style={{
+                  fontSize: '13px',
+                  fontWeight: 700,
+                  color: 'var(--navy-900, #0f172a)',
+                  lineHeight: '1.25',
+                  margin: '0 0 2px',
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
+                  whiteSpace: 'nowrap'
+                }}>{p.name}</h3>
+                <span style={{ fontSize: '11px', color: '#94a3b8', fontWeight: 500 }}>{p.model}</span>
               </div>
             </div>
           ))}

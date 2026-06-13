@@ -1,0 +1,15 @@
+# Apache Rewrite Rules for React Single Page Application (cPanel)
+# Place this file as .htaccess in the public_html root directory
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  
+  # Prevent rewrites for actual files, directories, or symbolic links
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-l
+  
+  # Rewrite all other requests to index.html (React handles routing)
+  RewriteRule . /index.html [L]
+</IfModule>

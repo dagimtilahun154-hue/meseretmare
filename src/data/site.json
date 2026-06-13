@@ -1,0 +1,144 @@
+{
+  "brand": {
+    "name": "Meseret Mare",
+    "subtitle": "Solar Products Importer",
+    "logo": "/uploads/meseret-solar-logo.webp"
+  },
+  "media": {
+    "home_hero_image": "/uploads/hero-solar-field.png",
+    "page_hero_image": "/uploads/hero-solar-field.png"
+  },
+  "navigation": [
+    {
+      "id": "home",
+      "label": "Home"
+    },
+    {
+      "id": "about",
+      "label": "About"
+    },
+    {
+      "id": "services",
+      "label": "Services"
+    },
+    {
+      "id": "products",
+      "label": "Products"
+    },
+    {
+      "id": "news",
+      "label": "News"
+    }
+  ],
+  "header_cta": {
+    "label": "Contact us",
+    "target": "contact"
+  },
+  "partner_logos": [
+    {
+      "name": "Ministry of Water and Energy",
+      "logo": "/partners/webp/ministry-of-water-and-energy.webp"
+    },
+    {
+      "name": "Ministry of Agriculture",
+      "logo": "/partners/webp/ministry-of-agriculture.webp"
+    },
+    {
+      "name": "Development Bank of Ethiopia",
+      "logo": "/partners/webp/development-bank-of-ethiopia.webp"
+    },
+    {
+      "name": "GIZ",
+      "logo": "/partners/webp/giz.webp"
+    },
+    {
+      "name": "GOGLA",
+      "logo": "/partners/webp/gogla.webp"
+    },
+    {
+      "name": "CARE International Ethiopia",
+      "logo": "/partners/webp/care-international-ethiopia.webp"
+    },
+    {
+      "name": "Addis Ababa University",
+      "logo": "/partners/webp/addis-ababa-university.webp"
+    },
+    {
+      "name": "Ethiopian Solar Energy Development Association",
+      "logo": "/partners/webp/ethiopian-solar-energy-development-association.webp"
+    },
+    {
+      "name": "ASDEPO",
+      "logo": "/partners/webp/asdepo.webp"
+    },
+    {
+      "name": "Purpose Black",
+      "logo": "/partners/webp/purpose-black.webp"
+    },
+    {
+      "name": "Winrock",
+      "logo": "/partners/webp/winrock.webp"
+    }
+  ],
+  "contact": {
+    "primary_phone": "+251910691261",
+    "phone_display": "+251 910691261 | +251 913040053",
+    "phone_cta_label": "Get a call",
+    "phone_cta_display": "+251 910 691 261",
+    "primary_email": "info@meseretmare.com",
+    "email_display": "meseretmare79@gmail.com\ninfo@meseretmare.com",
+    "address_short": "Addis Ababa, Gulele Sub City",
+    "address_display": "Gulele Sub City, Addisu Gebeya, Near to Noc Gas Station\nAddis Ababa, Ethiopia",
+    "form": {
+      "name_label": "Name",
+      "name_placeholder": "Your name",
+      "phone_label": "Phone",
+      "phone_placeholder": "+251...",
+      "need_label": "Need",
+      "need_options": [
+        "Solar pump",
+        "Home system",
+        "Lighting",
+        "Institutional project"
+      ],
+      "details_label": "Details",
+      "details_placeholder": "Site, water depth, rooms, or project size.",
+      "submit_label": "Send request",
+      "sent_label": "Sent"
+    }
+  },
+  "social_links": [
+    {
+      "label": "Telegram",
+      "url": "https://t.me/meseretmaresolar"
+    },
+    {
+      "label": "Facebook",
+      "url": "https://www.facebook.com/profile.php?id=61552345711287"
+    },
+    {
+      "label": "Instagram",
+      "url": "https://www.instagram.com/meseretmaresolar/"
+    },
+    {
+      "label": "Youtube",
+      "url": "https://youtube.com/@meseretmare"
+    },
+    {
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/company/107757674/admin/dashboard/"
+    },
+    {
+      "label": "TikTok",
+      "url": "http://tiktok.com/@meseretmaresolar"
+    }
+  ],
+  "footer": {
+    "about_heading": "About",
+    "about_text": "Since 2016, Meseret Mare Gebre Solar Products Importer has been dedicated to enhancing the lifestyle of people by providing top-quality solar products at affordable prices. As a proud member of GOGLA, we partner with stakeholders across the globe to deliver innovative solar solutions.",
+    "links_heading": "Quick Links",
+    "contact_nav_label": "Contact",
+    "contact_heading": "Get in touch with us",
+    "copyright_text": "2023 \u00a9 Meseret Mare Gebre Solar Importer. All rights reserved. Powering brighter days across Ethiopia."
+  }
+}

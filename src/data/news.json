@@ -1,0 +1,140 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "የግሉ ዘርፍ እና የኃይል አቅርቦት",
+      "date": "March 2, 2025",
+      "category": "News",
+      "image": "https://meseretmare.com/wp-content/uploads/2025/03/MSolar-1.png",
+      "excerpt": "የግሉ ዘርፍ እና የኃይል አቅርቦት",
+      "content": [
+        "የግሉ ዘርፍ እና የኃይል አቅርቦት በተመለከተ በቅርቡ የተደረገ ዝግጅት ላይ የተወሰዱ አበይት ጉዳዮች፡፡"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Debrezeyet mobile solar pump exhibition",
+      "date": "June 4, 2024",
+      "category": "Exhibition",
+      "image": "https://meseretmare.com/wp-content/uploads/2024/06/Debre-Zeyet-2cp-555x400.jpg",
+      "excerpt": "Debrezeyet mobile solar pump exhibition for farmers and government officials.",
+      "content": [
+        "Meseret Mare Gebre Solar Importer participated in the Debrezeyet mobile solar pump exhibition.",
+        "The event showcased affordable and efficient solar water pumping solutions tailored for Ethiopian farmers, attended by key government officials and agricultural stakeholders."
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Hawassa panel discussion with Hawassa water and energy minister",
+      "date": "June 4, 2024",
+      "category": "Partnership",
+      "image": "https://meseretmare.com/wp-content/uploads/2023/07/ASA-1-800x400-1.jpg",
+      "excerpt": "Organized by SNV and ESEDA in Hawassa.",
+      "content": [
+        "A fruitful panel discussion took place in Hawassa alongside the Water and Energy Minister, organized by SNV and ESEDA.",
+        "The talks focused on expanding clean energy access and fostering strong public-private partnerships in the solar sector."
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Sidama region meeting and site visit",
+      "date": "June 4, 2024",
+      "category": "Field Work",
+      "image": "https://meseretmare.com/wp-content/uploads/2024/06/Meseret-Mare-Gebre-Sidama-555x400.jpg",
+      "excerpt": "Sidama region meeting and site visit with local farmers.",
+      "content": [
+        "Our team conducted a site visit and held a community meeting in the Sidama region.",
+        "We engaged directly with local farmers to understand their energy needs and demonstrate the impact of our solar irrigation solutions."
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Participation in Water and Energy Fair",
+      "date": "August 21, 2023",
+      "category": "Exhibition",
+      "image": "https://meseretmare.com/wp-content/uploads/2023/08/photo_2023-08-21-11.41.10.jpeg",
+      "excerpt": "Meseret Mare Gebre - Solar Importer has participated in Water and Energy Fair.",
+      "content": [
+        "Meseret Mare Gebre Solar Importer participated in the Water and Energy Fair organized by the Ministry of Water and Energy.",
+        "The fair served as an excellent platform to showcase our Lighting Global certified solar products to a broader audience."
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Our Products on Local Market",
+      "date": "April 15, 2021",
+      "category": "Gallery",
+      "image": "https://meseretmare.com/wp-content/uploads/2021/04/solar-6-1024x768.jpg",
+      "excerpt": "Solar products being distributed at local markets across Ethiopia.",
+      "content": [
+        "Our certified solar products reaching communities through local market distribution channels, making clean energy accessible to rural households."
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Our Products Beneficiaries",
+      "date": "April 15, 2021",
+      "category": "Gallery",
+      "image": "https://meseretmare.com/wp-content/uploads/2021/04/solar-2-1024x768.jpg",
+      "excerpt": "Families benefiting from solar home systems in rural areas.",
+      "content": [
+        "Families in rural Ethiopia now enjoy reliable lighting and phone charging thanks to our solar home kits, replacing dangerous kerosene lamps."
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Training Participants on Solar Systems",
+      "date": "April 15, 2021",
+      "category": "Gallery",
+      "image": "https://meseretmare.com/wp-content/uploads/2021/04/cropped-solar-1.jpg",
+      "excerpt": "Community training session on solar system maintenance and usage.",
+      "content": [
+        "Hands-on training sessions for local technicians and community members on the installation, maintenance, and troubleshooting of solar systems."
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Mobile Solar Water Pump in Action",
+      "date": "August 21, 2023",
+      "category": "Gallery",
+      "image": "https://meseretmare.com/wp-content/uploads/2023/08/photo_2023-08-21-11.40.38-1024x577.jpeg",
+      "excerpt": "Mobile solar water pump built by Meseret Mare Gebre operating in the field.",
+      "content": [
+        "Our mobile solar water pump system designed for flexibility — easily transported to different farm sites for irrigation and community drinking water supply."
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Water and Energy Fair Highlights",
+      "date": "August 21, 2023",
+      "category": "Gallery",
+      "image": "https://meseretmare.com/wp-content/uploads/2023/08/Water-and-Energy-Fair-1024x683.jpg",
+      "excerpt": "Opening ceremony of the Water and Energy Fair.",
+      "content": [
+        "The Water and Energy Fair opening ceremony brought together government officials, NGOs, and private sector leaders to discuss Ethiopia's clean energy future."
+      ]
+    },
+    {
+      "id": 11,
+      "title": "Higher Gov't Officials Visiting Solar Energy Fair",
+      "date": "September 10, 2023",
+      "category": "Gallery",
+      "image": "https://meseretmare.com/wp-content/uploads/2023/09/higher-govt-officials-visiting-the-fair.jpg",
+      "excerpt": "Senior government officials touring the solar energy exhibition.",
+      "content": [
+        "High-ranking government officials visited our booth at the solar energy fair, showing strong support for private sector solar energy initiatives."
+      ]
+    },
+    {
+      "id": 12,
+      "title": "Memory on Solar Energy Fair",
+      "date": "September 10, 2023",
+      "category": "Gallery",
+      "image": "https://meseretmare.com/wp-content/uploads/2023/09/memory-on-solar-energy-fair-.jpg",
+      "excerpt": "Memorable moments from the solar energy exhibition.",
+      "content": [
+        "A look back at the connections made and partnerships formed during the solar energy fair — a milestone event for Ethiopia's renewable energy sector."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,221 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Content Manager - Meseret Mare Solar Importer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green-700: #1c8a3f;
+      --green-800: #0f5c2a;
+      --green-950: #05210d;
+      --surface: #efffe9;
+      --yellow-500: #f5c518;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: linear-gradient(145deg, #fcfff6, #f4fff1 46%, #dcf8cf);
+      min-height: 100vh;
+    }
+
+    #login-gate,
+    #cms-container {
+      display: none;
+    }
+
+    body.auth-ready #login-gate {
+      display: flex;
+    }
+
+    body.cms-ready #cms-container {
+      display: block;
+    }
+
+    #login-gate {
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .login-card {
+      width: min(100%, 420px);
+      background: var(--surface);
+      border: 1px solid rgba(255,255,255,0.82);
+      border-radius: 28px;
+      padding: 48px 36px;
+      box-shadow: 18px 18px 40px rgba(56,92,55,0.18), -18px -18px 40px rgba(255,255,255,0.78);
+      text-align: center;
+    }
+
+    .login-card .logo { width: 80px; margin: 0 auto 20px; }
+
+    .login-card h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.6rem;
+      color: var(--green-950);
+      margin-bottom: 6px;
+    }
+
+    .login-card .subtitle {
+      color: #60765b;
+      font-size: 14px;
+      margin-bottom: 32px;
+    }
+
+    .login-card label {
+      display: block;
+      text-align: left;
+      margin-bottom: 16px;
+    }
+
+    .login-card label span {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--green-950);
+      margin-bottom: 6px;
+    }
+
+    .login-card input {
+      width: 100%;
+      padding: 12px 16px;
+      font-size: 15px;
+      font-family: inherit;
+      border: 1px solid rgba(28,138,63,0.18);
+      border-radius: 14px;
+      background: var(--surface);
+      box-shadow: inset 4px 4px 8px rgba(74,112,60,0.10), inset -4px -4px 8px rgba(255,255,255,0.76);
+      outline: none;
+      transition: border-color 200ms;
+    }
+
+    .login-card input:focus {
+      border-color: var(--green-700);
+    }
+
+    .login-card button {
+      width: 100%;
+      margin-top: 8px;
+      padding: 14px;
+      font-size: 15px;
+      font-weight: 800;
+      font-family: inherit;
+      color: #fff;
+      border: 0;
+      border-radius: 14px;
+      background: linear-gradient(145deg, #5fd05c, var(--green-700));
+      box-shadow: 12px 12px 28px rgba(3,31,14,0.30), -10px -10px 24px rgba(255,255,255,0.12);
+      cursor: pointer;
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .login-card button:hover { transform: translateY(-2px); }
+    .login-card button:active { transform: translateY(0); }
+
+    .login-error {
+      display: none;
+      margin-top: 14px;
+      padding: 10px 14px;
+      background: #fff0f0;
+      border: 1px solid #ffc4c4;
+      border-radius: 12px;
+      color: #c44;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .login-error.visible { display: block; }
+  </style>
+</head>
+<body>
+  <div id="login-gate">
+    <div class="login-card">
+      <div class="logo" aria-hidden="true">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+          <rect width="80" height="80" rx="20" fill="#eaffdc"/>
+          <circle cx="40" cy="32" r="14" fill="#1c8a3f" opacity="0.18"/>
+          <path d="M40 22 L52 42 L28 42 Z" fill="#1c8a3f"/>
+          <rect x="24" y="44" width="32" height="4" rx="2" fill="#f5c518"/>
+          <rect x="30" y="50" width="20" height="3" rx="1.5" fill="#1c8a3f" opacity="0.4"/>
+        </svg>
+      </div>
+      <h1>Content Manager</h1>
+      <p class="subtitle">Meseret Mare Solar Products Importer</p>
+      <form id="login-form">
+        <label>
+          <span>Username</span>
+          <input type="text" id="login-user" placeholder="Enter username" autocomplete="username" required>
+        </label>
+        <label>
+          <span>Password</span>
+          <input type="password" id="login-pass" placeholder="Enter password" autocomplete="current-password" required>
+        </label>
+        <button type="submit">Sign in to CMS</button>
+        <div id="login-error" class="login-error">Invalid username or password.</div>
+      </form>
+    </div>
+  </div>
+
+  <div id="cms-container"></div>
+
+  <script>
+    const AUTH_KEY = 'meseret_cms_auth_v1';
+    const CMS_USER = 'meseretmare';
+    const CMS_PASS = 'tmmds2016';
+
+    function cleanInput(value) {
+      return String(value || '').trim().replace(/^['"]|['"]$/g, '').trim();
+    }
+
+    function showLogin() {
+      document.body.classList.remove('cms-ready');
+      document.body.classList.add('auth-ready');
+    }
+
+    function showCMS() {
+      document.body.classList.remove('auth-ready');
+      document.body.classList.add('cms-ready');
+
+      if (document.querySelector('script[data-decap-cms]')) return;
+
+      const script = document.createElement('script');
+      script.dataset.decapCms = 'true';
+      script.src = 'https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js';
+      document.body.appendChild(script);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      if (sessionStorage.getItem(AUTH_KEY) === 'true') {
+        showCMS();
+        return;
+      }
+
+      showLogin();
+
+      const form = document.getElementById('login-form');
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const user = cleanInput(document.getElementById('login-user').value).toLowerCase();
+        const pass = cleanInput(document.getElementById('login-pass').value);
+        const error = document.getElementById('login-error');
+
+        if (user === CMS_USER && pass === CMS_PASS) {
+          sessionStorage.setItem(AUTH_KEY, 'true');
+          showCMS();
+          return;
+        }
+
+        error.classList.add('visible');
+        window.clearTimeout(window.errorTimeout);
+        window.errorTimeout = window.setTimeout(() => error.classList.remove('visible'), 5000);
+      });
+    });
+  </script>
+</body>
+</html>

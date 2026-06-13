@@ -1,0 +1,40 @@
+{
+  "services": [
+    {
+      "icon": "Droplet",
+      "title": "Solar Water Pump Services",
+      "category": "Water & Agriculture",
+      "detail": "Complete solutions for agricultural irrigation and community drinking water."
+    },
+    {
+      "icon": "FileSearch",
+      "title": "Site Assessment & Design",
+      "category": "Engineering",
+      "detail": "Analysis of solar potential, load needs, and site conditions."
+    },
+    {
+      "icon": "Wrench",
+      "title": "Installation & Commissioning",
+      "category": "Technical setup",
+      "detail": "Turnkey setup, testing, and commissioning for reliable operation."
+    },
+    {
+      "icon": "HeartPulse",
+      "title": "Monitoring & Maintenance",
+      "category": "After-sales care",
+      "detail": "Preventative check-ups, diagnostics, and optimization."
+    },
+    {
+      "icon": "GraduationCap",
+      "title": "Educational Services",
+      "category": "Training",
+      "detail": "Solar literacy and basic maintenance training for communities."
+    },
+    {
+      "icon": "Users",
+      "title": "Outreach & Distribution",
+      "category": "Access",
+      "detail": "Last-mile promotion in remote off-grid regions."
+    }
+  ]
+}
