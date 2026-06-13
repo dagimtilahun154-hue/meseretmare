@@ -61,11 +61,9 @@ if ($provider === 'github' && $action === 'callback') {
     $error = $data['error'] ?? '';
 
     if ($error || !$token) {
-        $message = 'error';
-        $content = json_encode(['error' => $error ?: 'Failed to obtain access token']);
+        $message = 'authorization:github:error:' . json_encode(['error' => $error ?: 'Failed to obtain access token']);
     } else {
-        $message = 'authorization:github:success';
-        $content = json_encode([
+        $message = 'authorization:github:success:' . json_encode([
             'token' => $token,
             'provider' => 'github'
         ]);
@@ -83,10 +81,8 @@ if ($provider === 'github' && $action === 'callback') {
       <script>
         (function() {
           if (window.opener) {
-            // Send success or error state
-            window.opener.postMessage('<?php echo $message; ?>', '*');
-            // Send the JSON content containing token/error payload
-            window.opener.postMessage('<?php echo addslashes($content); ?>', '*');
+            // Send the completed message format expected by Decap CMS
+            window.opener.postMessage('<?php echo addslashes($message); ?>', '*');
             // Close popup
             window.close();
           } else {
