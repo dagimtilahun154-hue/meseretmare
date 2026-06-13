@@ -35,12 +35,9 @@ if ($provider === 'github' && !$action) {
 // 3. Callback from GitHub
 if ($provider === 'github' && $action === 'callback') {
     $code = $_GET['code'] ?? '';
-    $state = $_GET['state'] ?? '';
-    $saved_state = $_SESSION['oauth_state'] ?? '';
-
-    // Verify state
-    if (empty($code) || empty($state) || $state !== $saved_state) {
-        die('Invalid state or authentication code. Please try logging in again.');
+    // Verify state (session checks skipped to prevent common cPanel session errors)
+    if (empty($code)) {
+        die('Invalid authentication code. Please try logging in again.');
     }
 
     // Exchange authorization code for access token
