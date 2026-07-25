@@ -1,59 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useInView } from '../hooks/useInView';
 import { Factory } from 'lucide-react';
 import fallbackProductsData from '../data/products.json';
 
 export default function Products() {
   const [ref, isVisible] = useInView({ threshold: 0.05 });
-  const [products, setProducts] = useState(fallbackProductsData.products);
+  const products = fallbackProductsData.products;
   const [activeFilter, setActiveFilter] = useState('All Products');
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    async function loadProducts() {
-      try {
-        // 1. Try to get repo name from config.yml
-        const configRes = await fetch('/DM154/config.yml');
-        if (configRes.ok) {
-          const configText = await configRes.text();
-          const repoMatch = configText.match(/repo:\s*["']?([^"'\s]+)/);
-          
-          if (repoMatch && repoMatch[1] && repoMatch[1] !== 'owner/repo') {
-            const repo = repoMatch[1].trim();
-            // 2. Fetch directly from GitHub raw URL so updates are instant!
-            const githubUrl = `https://raw.githubusercontent.com/${repo}/main/public/data/products.json`;
-            const ghRes = await fetch(githubUrl);
-            if (ghRes.ok) {
-              const ghData = await ghRes.json();
-              if (ghData && Array.isArray(ghData.products)) {
-                setProducts(ghData.products);
-                setLoading(false);
-                return;
-              }
-            }
-          }
-        }
-      } catch (err) {
-        console.warn('Failed to load products from GitHub, falling back to local storage:', err);
-      }
-
-      // 3. Fallback: load local products.json from server
-      try {
-        const localRes = await fetch('/data/products.json');
-        if (localRes.ok) {
-          const localData = await localRes.json();
-          if (localData && Array.isArray(localData.products)) {
-            setProducts(localData.products);
-          }
-        }
-      } catch (err) {
-        console.error('Failed to load local products:', err);
-      }
-      setLoading(false);
-    }
-
-    loadProducts();
-  }, []);
 
   // Extract unique categories from the products data
   const categories = ['All Products', ...new Set(products.map(p => p.category))];

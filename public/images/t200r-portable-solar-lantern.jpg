@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Meseret Mare Gebre Solar Products Importer - Empowering Ethiopian communities with sustainable, affordable solar energy solutions since 2016." />
+    <meta name="keywords" content="solar energy, Ethiopia, solar products, solar water pumps, solar home systems, renewable energy, Meseret Mare" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <title>Meseret Mare - Solar Energy Solutions for Ethiopia</title>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script type="module" crossorigin src="/assets/index-B1n2oAcl.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-B6flUoIu.css">
+  </head>
+  <body>
+    <script>
+      if (window.location.pathname === '/DM154' || window.location.pathname === '/DM154/') {
+        window.location.replace('/DM154/index.html');
+      }
+    </script>
+    <div id="root"></div>
+  </body>
+</html>

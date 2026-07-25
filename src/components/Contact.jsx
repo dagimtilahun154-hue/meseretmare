@@ -13,17 +13,49 @@ export default function Contact() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  // Store real error messages from the API response
+  const [errorMessage, setErrorMessage] = useState(''); 
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate API request
-    setTimeout(() => {
+    setSubmitSuccess(false);
+    setErrorMessage(''); // Reset errors on new submission
+
+    // Prepare payload matching Web3Forms requirements
+    const payload = {
+      access_key: "7cf3aab7-6e57-49d5-a55c-21d225cf4288",
+      ...formData
+    };
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify(payload)
+      });
+
+      const result = await response.json();
+
+      // Check the real status returned by Web3Forms API
+      if (response.ok && result.success) {
+        setSubmitSuccess(true);
+        // Clear form state upon real successful submission
+        setFormData({ name: '', phone: '', email: '', interest: 'pumps', message: '' });
+        setTimeout(() => setSubmitSuccess(false), 5000);
+      } else {
+        // Capture real error message from API (e.g., "Invalid Access Key")
+        setErrorMessage(result.message || "Submission failed. Please check your form details.");
+      }
+    } catch (error) {
+      // Capture structural network/cors errors
+      setErrorMessage("Network error: Unable to reach the server. Please check your internet connection.");
+    } finally {
       setIsSubmitting(false);
-      setSubmitSuccess(true);
-      setFormData({ name: '', phone: '', email: '', interest: 'pumps', message: '' });
-      setTimeout(() => setSubmitSuccess(false), 5000);
-    }, 1500);
+    }
   };
 
   return (
@@ -169,6 +201,7 @@ export default function Contact() {
                 <label style={{ fontSize: 'var(--text-xs)', fontWeight: 600, color: 'var(--navy-800)', marginBottom: 'var(--space-1)' }}>Your Name *</label>
                 <input 
                   type="text" 
+                  name="name"
                   required
                   value={formData.name}
                   onChange={(e) => setFormData({...formData, name: e.target.value})}
@@ -198,6 +231,7 @@ export default function Contact() {
                   <label style={{ fontSize: 'var(--text-xs)', fontWeight: 600, color: 'var(--navy-800)', marginBottom: 'var(--space-1)' }}>Phone Number *</label>
                   <input 
                     type="tel" 
+                    name="phone"
                     required
                     value={formData.phone}
                     onChange={(e) => setFormData({...formData, phone: e.target.value})}
@@ -219,6 +253,7 @@ export default function Contact() {
                   <label style={{ fontSize: 'var(--text-xs)', fontWeight: 600, color: 'var(--navy-800)', marginBottom: 'var(--space-1)' }}>Email Address</label>
                   <input 
                     type="email"
+                    name="email"
                     value={formData.email}
                     onChange={(e) => setFormData({...formData, email: e.target.value})}
                     placeholder="e.g. abebe@gmail.com"
@@ -241,6 +276,7 @@ export default function Contact() {
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
                 <label style={{ fontSize: 'var(--text-xs)', fontWeight: 600, color: 'var(--navy-800)', marginBottom: 'var(--space-1)' }}>Solar Solution Interest *</label>
                 <select 
+                  name="interest"
                   value={formData.interest}
                   onChange={(e) => setFormData({...formData, interest: e.target.value})}
                   style={{
@@ -266,6 +302,7 @@ export default function Contact() {
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
                 <label style={{ fontSize: 'var(--text-xs)', fontWeight: 600, color: 'var(--navy-800)', marginBottom: 'var(--space-1)' }}>Your Requirements *</label>
                 <textarea 
+                  name="message"
                   required
                   rows="4"
                   value={formData.message}
@@ -285,6 +322,22 @@ export default function Contact() {
                   onBlur={(e) => e.target.style.borderColor = 'var(--border-light)'}
                 />
               </div>
+
+              {/* Real-time Error Display Panel */}
+              {errorMessage && (
+                <div style={{ 
+                  color: '#ef4444', 
+                  backgroundColor: '#fef2f2', 
+                  border: '1px solid #fee2e2',
+                  padding: 'var(--space-3)', 
+                  borderRadius: 'var(--radius-md)',
+                  fontSize: 'var(--text-xs)', 
+                  textAlign: 'left',
+                  fontWeight: 500
+                }}>
+                  {errorMessage}
+                </div>
+              )}
 
               {/* Submit Button */}
               <button 

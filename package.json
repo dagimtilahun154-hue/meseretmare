@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
+    "prebuild": "node scripts/sync-public-data.mjs",
     "dev": "vite",
     "cms": "npx decap-server",
     "build": "vite build",

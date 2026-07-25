@@ -3,13 +3,10 @@
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  RewriteBase /
-  
-  # Prevent rewrites for actual files, directories, or symbolic links
+
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME} !-l
-  
-  # Rewrite all other requests to index.html (React handles routing)
-  RewriteRule . /index.html [L]
+
+  RewriteRule . index.html [L]
 </IfModule>

@@ -1,352 +1,782 @@
 {
   "products": [
     {
-      "name": "Difful Submersible Solar Pump",
-      "model": "1500W 110V DC Motor",
-      "category": "Solar Pumps",
-      "use": "Borehole pumping for deep wells and irrigation",
-      "image": "/uploads/difful-submersible-solar-pump.webp",
-      "features": [
-        "Brushless DC motor",
-        "Submersible",
-        "High efficiency"
-      ],
-      "specs": [
-        "1500W",
-        "110V DC",
-        "2HP"
-      ]
-    },
-    {
-      "name": "Difful Surface Solar Pump",
-      "model": "Surface Water Pump",
-      "category": "Solar Pumps",
-      "use": "Surface pumping for shallow wells, rivers, and ponds",
-      "image": "/uploads/difful-surface-solar-pump.jpg",
-      "features": [
-        "Easy maintenance",
-        "Durable build",
-        "Battery-free"
-      ],
-      "specs": [
-        "Surface mount",
-        "High flow rate"
-      ]
-    },
-    {
       "name": "SDC Brushless Solar Pump",
-      "model": "SDC Series",
+      "model": "SDC",
       "category": "Solar Pumps",
-      "use": "Stainless steel deep well pump for reliable solar irrigation",
-      "image": "/uploads/solar-pump-redbud.png",
+      "use": "Solar water pumping for wells, irrigation, livestock watering, and off-grid water supply.",
+      "details": "SDC Brushless Solar Pump is imported from Redbud's solar pump range and listed for field-ready water access projects where local service and correct sizing matter.",
+      "image": "/images/redbud-sdc-brushless-solar-pump.webp",
       "features": [
-        "Brushless DC motor",
-        "Stainless steel"
+        "Brushless solar pump design",
+        "Off-grid water pumping",
+        "Suitable for irrigation and household supply"
       ],
       "specs": [
-        "Solar powered",
-        "Deep well"
+        "Solar pump series",
+        "Local image stored as WebP",
+        "Partner source: Redbud Pumps"
       ]
     },
     {
       "name": "SPC Brushless Solar Pump",
-      "model": "SPC Series",
+      "model": "SPC",
       "category": "Solar Pumps",
-      "use": "High-performance solar pump for agricultural water supply",
-      "image": "/uploads/solar-surface-pump.png",
+      "use": "Solar water pumping for wells, irrigation, livestock watering, and off-grid water supply.",
+      "details": "SPC Brushless Solar Pump is imported from Redbud's solar pump range and listed for field-ready water access projects where local service and correct sizing matter.",
+      "image": "/images/redbud-spc-brushless-solar-pump.webp",
       "features": [
-        "Brushless DC motor",
-        "Durable"
+        "Brushless solar pump design",
+        "Off-grid water pumping",
+        "Suitable for irrigation and household supply"
       ],
       "specs": [
-        "Solar powered",
-        "High flow"
+        "Solar pump series",
+        "Local image stored as WebP",
+        "Partner source: Redbud Pumps"
       ]
     },
     {
-      "name": "Difful DC Surface Pump",
-      "model": "DC Brushless",
+      "name": "QGC Brushless Solar Pump",
+      "model": "QGC",
       "category": "Solar Pumps",
-      "use": "DC brushless surface pump for off-grid water systems",
-      "image": "/uploads/difful-dc-surface-pump.png",
+      "use": "Solar water pumping for wells, irrigation, livestock watering, and off-grid water supply.",
+      "details": "QGC Brushless Solar Pump is imported from Redbud's solar pump range and listed for field-ready water access projects where local service and correct sizing matter.",
+      "image": "/images/redbud-qgc-brushless-solar-pump.webp",
       "features": [
-        "DC Brushless",
-        "Surface mount"
+        "Brushless solar pump design",
+        "Off-grid water pumping",
+        "Suitable for irrigation and household supply"
       ],
       "specs": [
-        "Solar pump",
-        "Off-grid"
+        "Solar pump series",
+        "Local image stored as WebP",
+        "Partner source: Redbud Pumps"
       ]
     },
     {
-      "name": "Difful Solar Pool Pump",
-      "model": "Pool Series",
+      "name": "SDC-A/D Brushless Solar Pump",
+      "model": "SDC-A/D",
       "category": "Solar Pumps",
-      "use": "Solar-powered pool circulation and maintenance pump",
-      "image": "/uploads/solar-pool-pump.png",
+      "use": "Solar water pumping for wells, irrigation, livestock watering, and off-grid water supply.",
+      "details": "SDC-A/D Brushless Solar Pump is imported from Redbud's solar pump range and listed for field-ready water access projects where local service and correct sizing matter.",
+      "image": "/images/redbud-sdc-a-d-brushless-solar-pump.webp",
       "features": [
-        "Pool circulation",
-        "Low noise"
+        "Brushless solar pump design",
+        "Off-grid water pumping",
+        "Suitable for irrigation and household supply"
       ],
       "specs": [
-        "Solar pump",
-        "Pool rated"
+        "Solar pump series",
+        "Local image stored as WebP",
+        "Partner source: Redbud Pumps"
       ]
     },
     {
-      "name": "Difful Solar Irrigation Pump",
-      "model": "Ag Series",
+      "name": "4SPC-A/D Brushless Solar Pump",
+      "model": "4SPC-A/D",
       "category": "Solar Pumps",
-      "use": "Agricultural irrigation pump for farms and greenhouses",
-      "image": "/uploads/difful-solar-irrigation-pump.png",
+      "use": "Solar water pumping for wells, irrigation, livestock watering, and off-grid water supply.",
+      "details": "4SPC-A/D Brushless Solar Pump is imported from Redbud's solar pump range and listed for field-ready water access projects where local service and correct sizing matter.",
+      "image": "/images/redbud-4spc-a-d-brushless-solar-pump.webp",
       "features": [
-        "Irrigation pump",
-        "High capacity"
+        "Brushless solar pump design",
+        "Off-grid water pumping",
+        "Suitable for irrigation and household supply"
       ],
       "specs": [
-        "Solar pump",
-        "Agriculture"
+        "Solar pump series",
+        "Local image stored as WebP",
+        "Partner source: Redbud Pumps"
       ]
     },
     {
-      "name": "Difful High-Flow Surface Pump",
-      "model": "Flow Series",
+      "name": "4/6SPC-A/D Brushless Solar Pump",
+      "model": "4/6SPC-A/D",
       "category": "Solar Pumps",
-      "use": "High flow rate surface pump for large-scale water transfer",
-      "image": "/uploads/difful-high-flow-surface-pump.png",
+      "use": "Solar water pumping for wells, irrigation, livestock watering, and off-grid water supply.",
+      "details": "4/6SPC-A/D Brushless Solar Pump is imported from Redbud's solar pump range and listed for field-ready water access projects where local service and correct sizing matter.",
+      "image": "/images/redbud-4-6spc-a-d-brushless-solar-pump.webp",
       "features": [
-        "High flow rate",
-        "Surface mount"
+        "Brushless solar pump design",
+        "Off-grid water pumping",
+        "Suitable for irrigation and household supply"
       ],
       "specs": [
-        "Solar pump",
-        "Industrial"
+        "Solar pump series",
+        "Local image stored as WebP",
+        "Partner source: Redbud Pumps"
       ]
     },
     {
-      "name": "AC/DC Hybrid Solar Pump",
-      "model": "Hybrid Series",
+      "name": "6SPC-A/D Brushless Solar Pump",
+      "model": "6SPC-A/D",
       "category": "Solar Pumps",
-      "use": "Hybrid AC/DC solar water pump for flexible power sources",
-      "image": "/uploads/ac-dc-hybrid-solar-pump.png",
+      "use": "Solar water pumping for wells, irrigation, livestock watering, and off-grid water supply.",
+      "details": "6SPC-A/D Brushless Solar Pump is imported from Redbud's solar pump range and listed for field-ready water access projects where local service and correct sizing matter.",
+      "image": "/images/redbud-6spc-a-d-brushless-solar-pump.webp",
       "features": [
-        "AC/DC hybrid",
-        "Versatile power"
+        "Brushless solar pump design",
+        "Off-grid water pumping",
+        "Suitable for irrigation and household supply"
       ],
       "specs": [
-        "Solar/Grid",
-        "Dual input"
+        "Solar pump series",
+        "Local image stored as WebP",
+        "Partner source: Redbud Pumps"
       ]
     },
     {
-      "name": "High Speed Deep Well Pump",
-      "model": "Deep Well Series",
+      "name": "3RDPI DC Screw/impeller Solar Pump",
+      "model": "3RDPI",
       "category": "Solar Pumps",
-      "use": "High speed deep well pump for boreholes up to 200m",
-      "image": "/uploads/high-speed-deep-well-pump.jpg",
+      "use": "Solar water pumping for wells, irrigation, livestock watering, and off-grid water supply.",
+      "details": "3RDPI DC Screw/impeller Solar Pump is imported from Redbud's solar pump range and listed for field-ready water access projects where local service and correct sizing matter.",
+      "image": "/images/redbud-3rdpi-dc-screw-impeller-solar-pump.webp",
       "features": [
-        "High speed",
-        "Deep well rated"
+        "Brushless solar pump design",
+        "Off-grid water pumping",
+        "Suitable for irrigation and household supply"
       ],
       "specs": [
-        "200m depth",
-        "Solar powered"
+        "Solar pump series",
+        "Local image stored as WebP",
+        "Partner source: Redbud Pumps"
       ]
     },
     {
-      "name": "S500 Solar Light",
-      "model": "S500",
-      "category": "Home & Portable Lighting",
-      "use": "Solar light for home, reading, and emergency use",
-      "image": "/uploads/s500-solar-light.jpg",
+      "name": "2RSS DC Screw/impeller Solar Pump",
+      "model": "2RSS",
+      "category": "Solar Pumps",
+      "use": "Solar water pumping for wells, irrigation, livestock watering, and off-grid water supply.",
+      "details": "2RSS DC Screw/impeller Solar Pump is imported from Redbud's solar pump range and listed for field-ready water access projects where local service and correct sizing matter.",
+      "image": "/images/redbud-2rss-dc-screw-impeller-solar-pump.webp",
       "features": [
-        "Multi-purpose",
-        "Bright LED",
-        "Portable"
+        "Brushless solar pump design",
+        "Off-grid water pumping",
+        "Suitable for irrigation and household supply"
       ],
       "specs": [
-        "Solar rechargeable"
+        "Solar pump series",
+        "Local image stored as WebP",
+        "Partner source: Redbud Pumps"
       ]
     },
     {
-      "name": "S200 Solar Light",
-      "model": "S200",
-      "category": "Home & Portable Lighting",
-      "use": "Always stay connected, night or day",
-      "image": "/uploads/s200-solar-light.png",
+      "name": "6000 rpm high speed deep well pump",
+      "model": "Sand-resistant structure design",
+      "category": "Solar Pumps",
+      "use": "Sand-resistant structure design for household water supply and irrigation",
+      "details": "6000 rpm high speed deep well pump is matched to Difful's source product card. Source notes: Sand-resistant structure design; household water supply and irrigation; Recruit dealers.",
+      "image": "/images/difful-6000-rpm-high-speed-deep-well-pump.webp",
       "features": [
-        "Compact design",
-        "Long battery life"
+        "Solar-powered water pumping",
+        "Agricultural and household supply options",
+        "Partner-matched product image"
       ],
       "specs": [
-        "Integrated panel"
+        "Sand-resistant structure design",
+        "household water supply and irrigation",
+        "Recruit dealers",
+        "Partner source: Difful Pump"
       ]
     },
     {
-      "name": "T200R Portable Solar Lantern",
-      "model": "T200R",
-      "category": "Home & Portable Lighting",
-      "use": "Dual light and mobile charging in one device",
-      "image": "/uploads/t200r-portable-solar-lantern.jpg",
+      "name": "DIFFUL high speed deep well pump",
+      "model": "The maximum speed is 6000 rpm",
+      "category": "Solar Pumps",
+      "use": "The maximum speed is 6000 rpm for solar water pump for irrigation",
+      "details": "DIFFUL high speed deep well pump is matched to Difful's source product card. Source notes: The maximum speed is 6000 rpm; solar water pump for irrigation; Recruit dealers and Support OEM.",
+      "image": "/images/difful-difful-high-speed-deep-well-pump.webp",
       "features": [
-        "Mobile phone charging",
-        "Dual light modes"
+        "Solar-powered water pumping",
+        "Agricultural and household supply options",
+        "Partner-matched product image"
       ],
       "specs": [
-        "USB output",
-        "Portable"
+        "The maximum speed is 6000 rpm",
+        "solar water pump for irrigation",
+        "Recruit dealers and Support OEM",
+        "Partner source: Difful Pump"
       ]
     },
     {
-      "name": "T200 Portable Solar Lantern",
-      "model": "T200",
-      "category": "Home & Portable Lighting",
-      "use": "Portable lantern and phone charger for camping",
-      "image": "/uploads/t200-portable-solar-lantern.png",
+      "name": "DIFFUL 6000 rpm high speed deep well pump",
+      "model": "AC DC Stainless steel solar pump",
+      "category": "Solar Pumps",
+      "use": "AC DC Stainless steel solar pump for Submersible Well Pump for Irrigation",
+      "details": "DIFFUL 6000 rpm high speed deep well pump is matched to Difful's source product card. Source notes: AC DC Stainless steel solar pump; Submersible Well Pump for Irrigation; Water Pump Manufacturer.",
+      "image": "/images/difful-difful-6000-rpm-high-speed-deep-well-pump.webp",
       "features": [
-        "Camping ready",
-        "Phone charger"
+        "Solar-powered water pumping",
+        "Agricultural and household supply options",
+        "Partner-matched product image"
       ],
       "specs": [
-        "Solar rechargeable"
+        "AC DC Stainless steel solar pump",
+        "Submersible Well Pump for Irrigation",
+        "Water Pump Manufacturer",
+        "Partner source: Difful Pump"
       ]
     },
     {
-      "name": "SunAce II 610",
-      "model": "Solar LED Lantern",
-      "category": "Home & Portable Lighting",
-      "use": "Solar LED lantern with remote control",
-      "image": "/uploads/sunace-ii-610.jpg",
+      "name": "DIFFUL 20m3/h flow high speed deep well pump",
+      "model": "6000RPM Motor",
+      "category": "Solar Pumps",
+      "use": "6000RPM Motor for High Flow Irrigation",
+      "details": "DIFFUL 20m3/h flow high speed deep well pump is matched to Difful's source product card. Source notes: 6000RPM Motor; High Flow Irrigation; Solar Water Pump Manufacturer.",
+      "image": "/images/difful-difful-20m3-h-flow-high-speed-deep-well-pump.webp",
       "features": [
-        "Remote control",
-        "Lighting Global certified"
+        "Solar-powered water pumping",
+        "Agricultural and household supply options",
+        "Partner-matched product image"
       ],
       "specs": [
-        "LED",
-        "Remote operated"
+        "6000RPM Motor",
+        "High Flow Irrigation",
+        "Solar Water Pump Manufacturer",
+        "Partner source: Difful Pump"
       ]
     },
     {
-      "name": "S3 Portable Solar Lantern",
-      "model": "S3",
-      "category": "Home & Portable Lighting",
-      "use": "Study lamp, emergency light, portable solar lamp",
-      "image": "/uploads/s3-portable-solar-lantern.jpg",
+      "name": "DIFFUL high speed deep well pump",
+      "model": "32m3/h flow",
+      "category": "Solar Pumps",
+      "use": "32m3/h flow for 6000RPM DC Brushless Motor",
+      "details": "DIFFUL high speed deep well pump is matched to Difful's source product card. Source notes: 32m3/h flow; 6000RPM DC Brushless Motor; Agricultural Irrigation; Solar Water Pump Factory.",
+      "image": "/images/difful-difful-high-speed-deep-well-pump-2.webp",
       "features": [
-        "Study friendly",
-        "Emergency lighting"
+        "Solar-powered water pumping",
+        "Agricultural and household supply options",
+        "Partner-matched product image"
       ],
       "specs": [
-        "Compact",
-        "Lightweight"
+        "32m3/h flow",
+        "6000RPM DC Brushless Motor",
+        "Agricultural Irrigation",
+        "Partner source: Difful Pump"
       ]
     },
     {
-      "name": "Sun King Home 120",
-      "model": "Solar Home System",
-      "category": "Solar Home Systems",
-      "use": "Solar ceiling lights with inbuilt battery and USB port",
-      "image": "/uploads/sun-king-home-120.jpg",
+      "name": "Solar pump factory outlet solar submersible pump with plastic impeller 4inch solar powered pump for irrigation",
+      "model": "Solar",
+      "category": "Solar Pumps",
+      "use": "Solar water pumping for farms, boreholes, and household water supply.",
+      "details": "Solar pump factory outlet solar submersible pump with plastic impeller 4inch solar powered pump for irrigation is matched to Difful's source product card. Configured for solar-powered water delivery.",
+      "image": "/images/difful-solar-pump-factory-outlet-solar-submersible-pump-with-plastic-impeller-4inch-solar-powered.webp",
       "features": [
-        "Inbuilt battery",
-        "Ceiling lights",
-        "USB charging"
+        "Solar-powered water pumping",
+        "Agricultural and household supply options",
+        "Partner-matched product image"
       ],
       "specs": [
-        "Multi-light",
-        "Phone charging"
+        "Partner source: Difful Pump"
       ]
     },
     {
-      "name": "Sun King HomePlus",
+      "name": "3 inch Screw solar bore pump 120W/210W/500W solar powered bore pump for household water supply",
+      "model": "3",
+      "category": "Solar Pumps",
+      "use": "Solar water pumping for farms, boreholes, and household water supply.",
+      "details": "3 inch Screw solar bore pump 120W/210W/500W solar powered bore pump for household water supply is matched to Difful's source product card. Configured for solar-powered water delivery.",
+      "image": "/images/difful-3-inch-screw-solar-bore-pump-120w-210w-500w-solar-powered-bore-pump-for-household-water-su.webp",
+      "features": [
+        "Solar-powered water pumping",
+        "Agricultural and household supply options",
+        "Partner-matched product image"
+      ],
+      "specs": [
+        "Partner source: Difful Pump"
+      ]
+    },
+    {
+      "name": "centrifugal surface pump with solar power DC 72V domestic solar pump",
+      "model": "centrifugal",
+      "category": "Solar Pumps",
+      "use": "Solar water pumping for farms, boreholes, and household water supply.",
+      "details": "centrifugal surface pump with solar power DC 72V domestic solar pump is matched to Difful's source product card. Configured for solar-powered water delivery.",
+      "image": "/images/difful-centrifugal-surface-pump-with-solar-power-dc-72v-domestic-solar-pump.webp",
+      "features": [
+        "Solar-powered water pumping",
+        "Agricultural and household supply options",
+        "Partner-matched product image"
+      ],
+      "specs": [
+        "Partner source: Difful Pump"
+      ]
+    },
+    {
+      "name": "3 inch 1hp DC brushless solar pump plastic impeller solar power pump price solar water pump for well solar pump sales",
+      "model": "3",
+      "category": "Solar Pumps",
+      "use": "Solar water pumping for farms, boreholes, and household water supply.",
+      "details": "3 inch 1hp DC brushless solar pump plastic impeller solar power pump price solar water pump for well solar pump sales is matched to Difful's source product card. Configured for solar-powered water delivery.",
+      "image": "/images/difful-3-inch-1hp-dc-brushless-solar-pump-plastic-impeller-solar-power-pump-price-solar-water-pum.webp",
+      "features": [
+        "Solar-powered water pumping",
+        "Agricultural and household supply options",
+        "Partner-matched product image"
+      ],
+      "specs": [
+        "Partner source: Difful Pump"
+      ]
+    },
+    {
+      "name": "DC peripheral surface solar pump for house using 750W vortex solar pump",
+      "model": "DC",
+      "category": "Solar Pumps",
+      "use": "Solar water pumping for farms, boreholes, and household water supply.",
+      "details": "DC peripheral surface solar pump for house using 750W vortex solar pump is matched to Difful's source product card. Configured for solar-powered water delivery.",
+      "image": "/images/difful-dc-peripheral-surface-solar-pump-for-house-using-750w-vortex-solar-pump.webp",
+      "features": [
+        "Solar-powered water pumping",
+        "Agricultural and household supply options",
+        "Partner-matched product image"
+      ],
+      "specs": [
+        "Partner source: Difful Pump"
+      ]
+    },
+    {
+      "name": "HomePlus",
       "model": "HomePlus",
       "category": "Solar Home Systems",
-      "use": "Complete home lighting system with solar charging",
-      "image": "/uploads/solar-home-system.png",
+      "use": "Ultra-affordable solar lighting and basic phone charging",
+      "details": "HomePlus is listed from Sun King's home systems and appliances range with its source product image stored locally.",
+      "image": "/images/sunking-homeplus.webp",
       "features": [
-        "Reliable lighting",
-        "Solar charging"
+        "Solar home energy package",
+        "Household lighting and appliance support",
+        "Partner-matched product image"
       ],
       "specs": [
-        "Home system",
-        "Multi-room"
+        "Pay-as-you-go ready where available",
+        "Partner source: Sun King"
       ]
     },
     {
-      "name": "Sun King HomePlus Pro",
-      "model": "HomePlus Pro",
+      "name": "HomePlus Pro",
+      "model": "HomePlus",
       "category": "Solar Home Systems",
-      "use": "Advanced solar home system with extended battery life",
-      "image": "/uploads/solar-home-system.png",
+      "use": "Comprehensive lighting and smartphone charging",
+      "details": "HomePlus Pro is listed from Sun King's home systems and appliances range with its source product image stored locally.",
+      "image": "/images/sunking-homeplus-pro.webp",
       "features": [
-        "Advanced features",
-        "Extended battery"
+        "Solar home energy package",
+        "Household lighting and appliance support",
+        "Partner-matched product image"
       ],
       "specs": [
-        "Home system",
-        "Pro grade"
+        "Pay-as-you-go ready where available",
+        "Partner source: Sun King"
       ]
     },
     {
-      "name": "Sun King HomePlus Max",
-      "model": "HomePlus Max",
+      "name": "HomePlus Max",
+      "model": "HomePlus",
       "category": "Solar Home Systems",
-      "use": "Maximum capacity solar home system for large families",
-      "image": "/uploads/solar-home-system.png",
+      "use": "Powerful solar lighting and laptop charging, with battery chargeable by solar or grid power.",
+      "details": "HomePlus Max is listed from Sun King's home systems and appliances range with its source product image stored locally.",
+      "image": "/images/sunking-homeplus-max.webp",
       "features": [
-        "Max capacity",
-        "Large panel"
+        "Solar home energy package",
+        "Household lighting and appliance support",
+        "Partner-matched product image"
       ],
       "specs": [
-        "Home system",
-        "Max power"
+        "Pay-as-you-go ready where available",
+        "Partner source: Sun King"
       ]
     },
     {
-      "name": "Solar Powered TV Set",
-      "model": "Home 500X TV",
+      "name": "HomePlus Max + 24″ HD TV",
+      "model": "HomePlus",
       "category": "Solar Home Systems",
-      "use": "High-efficiency DC TV set for off-grid entertainment",
-      "image": "/uploads/solar-powered-tv-set.webp",
+      "use": "Powerful solar lighting and a solar powered 24\" HD TV, with battery chargeable by solar or grid power.",
+      "details": "HomePlus Max + 24″ HD TV is listed from Sun King's home systems and appliances range with its source product image stored locally.",
+      "image": "/images/sunking-homeplus-max-plus-24-hd-tv.webp",
       "features": [
-        "Low power draw",
-        "High definition"
+        "Solar home energy package",
+        "Household lighting and appliance support",
+        "Partner-matched product image"
       ],
       "specs": [
-        "DC powered",
-        "LED display"
+        "Pay-as-you-go ready where available",
+        "Partner source: Sun King"
       ]
     },
     {
-      "name": "Sun King HomePlus Max + 24\" TV",
-      "model": "TV Bundle 24\"",
-      "category": "Solar Home Systems",
-      "use": "Solar home system bundled with 24-inch HD TV",
-      "image": "/uploads/sun-king-homeplus-max-24-tv.webp",
-      "features": [
-        "Includes 24-inch TV",
-        "Solar charging"
-      ],
-      "specs": [
-        "Home system",
-        "TV bundle"
-      ]
-    },
-    {
-      "name": "18Ah Solar Sewing Machine Pack",
-      "model": "HS2B-230_LT4_SEWB",
+      "name": "HomePlus Max + Pedestal Fan",
+      "model": "HomePlus",
       "category": "Solar Appliances",
-      "use": "12V DC solar sewing machine system with 110W panel",
-      "image": "/uploads/solar-sewing-machine-pack.jpg",
+      "use": "Powerful solar lighting with a powerful solar-powered pedestal fan.",
+      "details": "HomePlus Max + Pedestal Fan is listed from Sun King's home systems and appliances range with its source product image stored locally.",
+      "image": "/images/sunking-homeplus-max-plus-pedestal-fan.webp",
       "features": [
-        "110W solar panel",
-        "18Ah lithium battery",
-        "Metallic sewing machine"
+        "Solar home energy package",
+        "Household lighting and appliance support",
+        "Partner-matched product image"
       ],
       "specs": [
-        "12V DC",
-        "60 stitch patterns",
-        "LED tube light"
+        "Pay-as-you-go ready where available",
+        "Partner source: Sun King"
+      ]
+    },
+    {
+      "name": "16″ Solar Fan",
+      "model": "16″",
+      "category": "Solar Appliances",
+      "use": "A lightweight and portable solar fan, with a robust battery and standalone solar panel for use anytime, anywhere",
+      "details": "16″ Solar Fan is listed from Sun King's home systems and appliances range with its source product image stored locally.",
+      "image": "/images/sunking-16-solar-fan.webp",
+      "features": [
+        "Solar home energy package",
+        "Household lighting and appliance support",
+        "Partner-matched product image"
+      ],
+      "specs": [
+        "Pay-as-you-go ready where available",
+        "Partner source: Sun King"
+      ]
+    },
+    {
+      "name": "E-3 PRO",
+      "model": "E-3",
+      "category": "Solar Mobility",
+      "use": "Electric mobility product for clean transport programs.",
+      "details": "E-3 PRO is imported from OmniVoltaic's mobility product lineup and paired with the exact source product image.",
+      "image": "/images/omnivoltaic-e-3-pro.webp",
+      "features": [
+        "Electric mobility ecosystem product",
+        "Designed for clean transport deployment",
+        "Partner-matched product image"
+      ],
+      "specs": [
+        "Mobility product line",
+        "Partner source: OmniVoltaic"
+      ]
+    },
+    {
+      "name": "E-3 PLUS",
+      "model": "E-3",
+      "category": "Solar Mobility",
+      "use": "Electric mobility product for clean transport programs.",
+      "details": "E-3 PLUS is imported from OmniVoltaic's mobility product lineup and paired with the exact source product image.",
+      "image": "/images/omnivoltaic-e-3-plus.webp",
+      "features": [
+        "Electric mobility ecosystem product",
+        "Designed for clean transport deployment",
+        "Partner-matched product image"
+      ],
+      "specs": [
+        "Mobility product line",
+        "Partner source: OmniVoltaic"
+      ]
+    },
+    {
+      "name": "E-3",
+      "model": "E-3",
+      "category": "Solar Mobility",
+      "use": "Electric mobility product for clean transport programs.",
+      "details": "E-3 is imported from OmniVoltaic's mobility product lineup and paired with the exact source product image.",
+      "image": "/images/omnivoltaic-e-3.webp",
+      "features": [
+        "Electric mobility ecosystem product",
+        "Designed for clean transport deployment",
+        "Partner-matched product image"
+      ],
+      "specs": [
+        "Mobility product line",
+        "Partner source: OmniVoltaic"
+      ]
+    },
+    {
+      "name": "S-6",
+      "model": "S-6",
+      "category": "Solar Mobility",
+      "use": "Electric mobility product for clean transport programs.",
+      "details": "S-6 is imported from OmniVoltaic's mobility product lineup and paired with the exact source product image.",
+      "image": "/images/omnivoltaic-s-6.webp",
+      "features": [
+        "Electric mobility ecosystem product",
+        "Designed for clean transport deployment",
+        "Partner-matched product image"
+      ],
+      "specs": [
+        "Mobility product line",
+        "Partner source: OmniVoltaic"
+      ]
+    },
+    {
+      "name": "CET-3",
+      "model": "CET-3",
+      "category": "Solar Mobility",
+      "use": "Electric mobility product for clean transport programs.",
+      "details": "CET-3 is imported from OmniVoltaic's mobility product lineup and paired with the exact source product image.",
+      "image": "/images/omnivoltaic-cet-3.webp",
+      "features": [
+        "Electric mobility ecosystem product",
+        "Designed for clean transport deployment",
+        "Partner-matched product image"
+      ],
+      "specs": [
+        "Mobility product line",
+        "Partner source: OmniVoltaic"
+      ]
+    },
+    {
+      "name": "PET-3",
+      "model": "PET-3",
+      "category": "Solar Mobility",
+      "use": "Electric mobility product for clean transport programs.",
+      "details": "PET-3 is imported from OmniVoltaic's mobility product lineup and paired with the exact source product image.",
+      "image": "/images/omnivoltaic-pet-3.webp",
+      "features": [
+        "Electric mobility ecosystem product",
+        "Designed for clean transport deployment",
+        "Partner-matched product image"
+      ],
+      "specs": [
+        "Mobility product line",
+        "Partner source: OmniVoltaic"
+      ]
+    },
+    {
+      "name": "E-Mob-CHG12",
+      "model": "E-Mob-CHG12",
+      "category": "Solar Mobility",
+      "use": "Electric mobility charging and battery infrastructure.",
+      "details": "E-Mob-CHG12 is imported from OmniVoltaic's mobility product lineup and paired with the exact source product image.",
+      "image": "/images/omnivoltaic-e-mob-chg12.webp",
+      "features": [
+        "Electric mobility ecosystem product",
+        "Designed for clean transport deployment",
+        "Partner-matched product image"
+      ],
+      "specs": [
+        "Mobility product line",
+        "Partner source: OmniVoltaic"
+      ]
+    },
+    {
+      "name": "E-Mob-CHG25",
+      "model": "E-Mob-CHG25",
+      "category": "Solar Mobility",
+      "use": "Electric mobility charging and battery infrastructure.",
+      "details": "E-Mob-CHG25 is imported from OmniVoltaic's mobility product lineup and paired with the exact source product image.",
+      "image": "/images/omnivoltaic-e-mob-chg25.webp",
+      "features": [
+        "Electric mobility ecosystem product",
+        "Designed for clean transport deployment",
+        "Partner-matched product image"
+      ],
+      "specs": [
+        "Mobility product line",
+        "Partner source: OmniVoltaic"
+      ]
+    },
+    {
+      "name": "E-Mob-CHGRack-N",
+      "model": "E-Mob-CHGRack-N",
+      "category": "Solar Mobility",
+      "use": "Electric mobility charging and battery infrastructure.",
+      "details": "E-Mob-CHGRack-N is imported from OmniVoltaic's mobility product lineup and paired with the exact source product image.",
+      "image": "/images/omnivoltaic-e-mob-chgrack-n.webp",
+      "features": [
+        "Electric mobility ecosystem product",
+        "Designed for clean transport deployment",
+        "Partner-matched product image"
+      ],
+      "specs": [
+        "Mobility product line",
+        "Partner source: OmniVoltaic"
+      ]
+    },
+    {
+      "name": "E-Mob-Qix",
+      "model": "E-Mob-Qix",
+      "category": "Solar Mobility",
+      "use": "Electric mobility charging and battery infrastructure.",
+      "details": "E-Mob-Qix is imported from OmniVoltaic's mobility product lineup and paired with the exact source product image.",
+      "image": "/images/omnivoltaic-e-mob-qix.webp",
+      "features": [
+        "Electric mobility ecosystem product",
+        "Designed for clean transport deployment",
+        "Partner-matched product image"
+      ],
+      "specs": [
+        "Mobility product line",
+        "Partner source: OmniVoltaic"
+      ]
+    },
+    {
+      "name": "A2",
+      "model": "A2",
+      "category": "Home & Portable Lighting",
+      "use": "Solar Lantern",
+      "details": "A2 is imported from d.light's product catalog with its exact source product image stored locally for CMS editing.",
+      "image": "/images/dlight-a2.webp",
+      "features": [
+        "Off-grid solar energy product",
+        "Household-ready design",
+        "Partner-matched product image"
+      ],
+      "specs": [
+        "Solar Lantern",
+        "Partner source: d.light"
+      ]
+    },
+    {
+      "name": "iMax10 Pro",
+      "model": "iMax10",
+      "category": "Solar Appliances",
+      "use": "Solar Inverter",
+      "details": "iMax10 Pro is imported from d.light's product catalog with its exact source product image stored locally for CMS editing.",
+      "image": "/images/dlight-imax10-pro.webp",
+      "features": [
+        "Off-grid solar energy product",
+        "Household-ready design",
+        "Partner-matched product image"
+      ],
+      "specs": [
+        "Solar Inverter",
+        "Partner source: d.light"
+      ]
+    },
+    {
+      "name": "D10 Neo",
+      "model": "D10",
+      "category": "Solar Home Systems",
+      "use": "Solar Home System",
+      "details": "D10 Neo is imported from d.light's product catalog with its exact source product image stored locally for CMS editing.",
+      "image": "/images/dlight-d10-neo.webp",
+      "features": [
+        "Off-grid solar energy product",
+        "Household-ready design",
+        "Partner-matched product image"
+      ],
+      "specs": [
+        "Solar Home System",
+        "Partner source: d.light"
+      ]
+    },
+    {
+      "name": "D100",
+      "model": "D100",
+      "category": "Solar Home Systems",
+      "use": "Solar Home System",
+      "details": "D100 is imported from d.light's product catalog with its exact source product image stored locally for CMS editing.",
+      "image": "/images/dlight-d100.webp",
+      "features": [
+        "Off-grid solar energy product",
+        "Household-ready design",
+        "Partner-matched product image"
+      ],
+      "specs": [
+        "Solar Home System",
+        "Partner source: d.light"
+      ]
+    },
+    {
+      "name": "S3",
+      "model": "S3",
+      "category": "Home & Portable Lighting",
+      "use": "Solar Lantern",
+      "details": "S3 is imported from d.light's product catalog with its exact source product image stored locally for CMS editing.",
+      "image": "/images/dlight-s3.webp",
+      "features": [
+        "Off-grid solar energy product",
+        "Household-ready design",
+        "Partner-matched product image"
+      ],
+      "specs": [
+        "Solar Lantern",
+        "Partner source: d.light"
+      ]
+    },
+    {
+      "name": "S30",
+      "model": "S30",
+      "category": "Home & Portable Lighting",
+      "use": "Solar Lantern",
+      "details": "S30 is imported from d.light's product catalog with its exact source product image stored locally for CMS editing.",
+      "image": "/images/dlight-s30.webp",
+      "features": [
+        "Off-grid solar energy product",
+        "Household-ready design",
+        "Partner-matched product image"
+      ],
+      "specs": [
+        "Solar Lantern",
+        "Partner source: d.light"
+      ]
+    },
+    {
+      "name": "D200",
+      "model": "D200",
+      "category": "Solar Home Systems",
+      "use": "Solar Home System",
+      "details": "D200 is imported from d.light's product catalog with its exact source product image stored locally for CMS editing.",
+      "image": "/images/dlight-d200.webp",
+      "features": [
+        "Off-grid solar energy product",
+        "Household-ready design",
+        "Partner-matched product image"
+      ],
+      "specs": [
+        "Solar Home System",
+        "Partner source: d.light"
+      ]
+    },
+    {
+      "name": "S200 Pro",
+      "model": "S200",
+      "category": "Home & Portable Lighting",
+      "use": "Solar Lantern",
+      "details": "S200 Pro is imported from d.light's product catalog with its exact source product image stored locally for CMS editing.",
+      "image": "/images/dlight-s200-pro.webp",
+      "features": [
+        "Off-grid solar energy product",
+        "Household-ready design",
+        "Partner-matched product image"
+      ],
+      "specs": [
+        "Solar Lantern",
+        "Partner source: d.light"
+      ]
+    },
+    {
+      "name": "X1000 Pro",
+      "model": "X1000",
+      "category": "Solar Home Systems",
+      "use": "Solar Home System",
+      "details": "X1000 Pro is imported from d.light's product catalog with its exact source product image stored locally for CMS editing.",
+      "image": "/images/dlight-x1000-pro.webp",
+      "features": [
+        "Off-grid solar energy product",
+        "Household-ready design",
+        "Partner-matched product image"
+      ],
+      "specs": [
+        "Solar Home System",
+        "Partner source: d.light"
+      ]
+    },
+    {
+      "name": "X2000 Pro",
+      "model": "X2000",
+      "category": "Solar Home Systems",
+      "use": "Solar Home System",
+      "details": "X2000 Pro is imported from d.light's product catalog with its exact source product image stored locally for CMS editing.",
+      "image": "/images/dlight-x2000-pro.webp",
+      "features": [
+        "Off-grid solar energy product",
+        "Household-ready design",
+        "Partner-matched product image"
+      ],
+      "specs": [
+        "Solar Home System",
+        "Partner source: d.light"
       ]
     }
   ]

@@ -3,9 +3,10 @@ import react from '@vitejs/plugin-react'
 
 function dm154CmsRedirect() {
   const redirect = (req, res, next) => {
-    if (req.url === '/DM154' || req.url === '/DM154/') {
+    if (/\/DM154\/?$/i.test(req.url || '')) {
       res.statusCode = 302
-      res.setHeader('Location', '/DM154/index.html')
+      const cleanUrl = (req.url || '/DM154').replace(/\/?$/, '/')
+      res.setHeader('Location', `${cleanUrl}index.html`)
       res.end()
       return
     }
@@ -26,5 +27,6 @@ function dm154CmsRedirect() {
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: './',
   plugins: [dm154CmsRedirect(), react()],
 })

@@ -67,51 +67,399 @@ const IconsMap = {
 
 const getIcon = (name) => IconsMap[name] || Zap;
 
-const siteSettings = siteData;
-const homepage = homepageData;
-const navItems = siteSettings.navigation || [];
-const siteMedia = siteSettings.media || {};
-const contactInfo = siteSettings.contact || {};
-const footerContent = siteSettings.footer || {};
-const socialLinks = siteSettings.social_links || [];
+let siteSettings = siteData;
+let homepage = homepageData;
+let navItems = siteSettings.navigation || [];
+let siteMedia = siteSettings.media || {};
+let contactInfo = siteSettings.contact || {};
+let footerContent = siteSettings.footer || {};
+let socialLinks = siteSettings.social_links || [];
 
-const routeIds = new Set([...navItems.map((item) => item.id), 'contact']);
+let routeIds = new Set([...navItems.map((item) => item.id), 'contact']);
 const normalizeRoute = (target, fallback = 'home') => (routeIds.has(target) ? target : fallback);
 const phoneHref = (phone) => `tel:${String(phone || '').replace(/[^\d+]/g, '')}`;
 const splitLines = (value) => String(value || '').split('\n');
 
-const metrics = metricsData.metrics.map((m) => [m.value, m.label]);
+let metrics = metricsData.metrics.map((m) => [m.value, m.label]);
 
-const highlights = (homepage.capabilities?.items || []).map((item) => ({
+let highlights = (homepage.capabilities?.items || []).map((item) => ({
   ...item,
   icon: getIcon(item.icon),
 }));
 
-const services = servicesData.services.map((s) => ({
+let services = servicesData.services.map((s) => ({
   ...s,
   icon: getIcon(s.icon),
 }));
 
-const products = productsData.products;
+let products = productsData.products;
 
-const featuredProducts = featuredData.featured.map((f) => ({
+let featuredProducts = featuredData.featured.map((f) => ({
   ...f,
   icon: getIcon(f.icon),
 }));
 
-const partnerLogos = siteSettings.partner_logos || [];
-const previousWorks = homepage.field_proof?.items || [];
-const operatingModel = homepage.operating_model?.steps || [];
+let partnerLogos = siteSettings.partner_logos || [];
+let previousWorks = homepage.field_proof?.items || [];
+let operatingModel = homepage.operating_model?.steps || [];
 
-const coreValues = valuesData.values.map((v) => [v.title, v.description]);
+let coreValues = valuesData.values.map((v) => [v.title, v.description]);
 
-const newsPosts = newsData.posts;
+let newsPosts = newsData.posts;
 
-const partnerDetails = partnersData.partners.map((p) => [p.name, p.subtitle, p.description]);
+let partnerDetails = partnersData.partners.map((p) => [p.name, p.subtitle, p.description]);
 
-const pageCopy = copyData;
+let pageCopy = copyData;
 
-const aboutTimeline = timelineData.timeline;
+let aboutTimeline = timelineData.timeline;
+
+const imageLikeKeys = new Set(['image', 'logo', 'home_hero_image', 'page_hero_image']);
+
+const assetFallbacks = {
+  logo: '/images/meseret-solar-logo.webp',
+  hero: '/images/hero-solar-field.png',
+  product: '/images/product-solar-pump.png',
+  home: '/images/product-home-kit.png',
+  news: '/images/hero-solar-field.png',
+  partner: '/images/meseret-solar-logo.webp',
+  proof: '/images/proof-community-solar.png',
+};
+
+const knownBrokenAssetBasenames = new Set(['news-.png']);
+
+const CANONICAL_ORIGIN = 'https://meseretmare.com';
+const DEFAULT_SEO_IMAGE = `${CANONICAL_ORIGIN}/images/hero-solar-field.png`;
+
+const SEO_META = {
+  home: {
+    title: 'Solar Products Importer in Ethiopia | Meseret Mare Gebre Solar',
+    description:
+      'Meseret Mare Gebre Solar imports and supports solar water pumps, solar home systems, portable lanterns, and off-grid solar solutions for farms, homes, NGOs, and rural communities in Ethiopia.',
+    keywords:
+      'solar products importer Ethiopia, solar company Ethiopia, solar solutions Ethiopia, off-grid solar Ethiopia, solar importer Addis Ababa, renewable energy Ethiopia, sustainable energy Ethiopia, rural solar solutions Ethiopia, GOGLA member Ethiopia solar, Lighting Global certified solar products Ethiopia, Meseret Mare, የፀሐይ ኃይል',
+    hash: '',
+  },
+  about: {
+    title: 'About Meseret Mare Gebre Solar | Off-Grid Solar Ethiopia',
+    description:
+      'Learn about Meseret Mare Gebre Solar, an Ethiopia-based solar products importer supporting rural electrification, Lighting Global certified products, GOGLA principles, farms, homes, and institutions.',
+    keywords:
+      'Meseret Mare Gebre, Meseret Mare Solar Importer, GOGLA member Ethiopia solar, Lighting Global certified solar products Ethiopia, off-grid solar Ethiopia, rural solar solutions Ethiopia, sustainable energy Ethiopia',
+    hash: '#about',
+  },
+  services: {
+    title: 'Solar Installation, Site Assessment & Maintenance in Ethiopia',
+    description:
+      'Solar site assessment, system design, installation, commissioning, monitoring, maintenance, training, and field support for solar pumps and off-grid solar systems in Ethiopia.',
+    keywords:
+      'solar system installation Ethiopia, solar site assessment Ethiopia, solar system design Ethiopia, solar commissioning Ethiopia, solar monitoring and maintenance Ethiopia, solar water pump installation Ethiopia, solar for agriculture Ethiopia',
+    hash: '#services',
+  },
+  products: {
+    title: 'Solar Water Pumps, Home Systems & Lanterns in Ethiopia',
+    description:
+      'Explore imported solar water pumps, Sun King and d.light solar home systems, portable solar lanterns, Difful and Redbud pump lines, solar phone chargers, and solar powered TV solutions for Ethiopia.',
+    keywords:
+      'solar water pump Ethiopia, solar pump importer Ethiopia, solar irrigation pump Ethiopia, submersible solar pump Ethiopia, surface solar pump Ethiopia, Difful solar pump Ethiopia, Redbud solar pump Ethiopia, solar home system Ethiopia, Sun King home system Ethiopia, d.light solar home system Ethiopia, portable solar lantern Ethiopia, solar lantern Addis Ababa, solar powered TV Ethiopia, የፀሐይ ውሃ ፓምፕ, የፀሐይ መብራት, የፀሐይ ቤት ሲስተም',
+    hash: '#products',
+  },
+  news: {
+    title: 'Solar Energy News & Field Updates from Ethiopia | Meseret Mare',
+    description:
+      'Field updates from Meseret Mare Gebre Solar, including solar pump exhibitions, Water and Energy Fair participation, rural distribution, training, and clean energy impact stories across Ethiopia.',
+    keywords:
+      'solar energy fair Ethiopia, Water and Energy Fair Ethiopia, mobile solar water pump Ethiopia, solar pump demonstration Ethiopia, rural solar distribution Ethiopia, solar training Ethiopia, off-grid solar villages Ethiopia',
+    hash: '#news',
+  },
+  contact: {
+    title: 'Request Solar Pump or Home System Quote in Ethiopia | Meseret Mare',
+    description:
+      'Contact Meseret Mare Gebre Solar in Addis Ababa for solar water pump pricing, solar home system recommendations, lantern inquiries, installation support, and NGO or institutional project requests.',
+    keywords:
+      'solar quote Ethiopia, solar pump price Ethiopia, solar water pump Addis Ababa, solar home system Addis Ababa, solar lantern Addis Ababa, solar importer Addis Ababa, community solar water supply Ethiopia, የፀሐይ ምርቶች ኢትዮጵያ',
+    hash: '#contact',
+  },
+};
+
+function getPageSeo(page) {
+  return SEO_META[page] || SEO_META.home;
+}
+
+function setMetaTag(selector, attribute, value) {
+  const node = document.head.querySelector(selector);
+  if (node && value) {
+    node.setAttribute(attribute, value);
+  }
+}
+
+function applyPageSeo(page) {
+  const seo = getPageSeo(page);
+  const url = `${CANONICAL_ORIGIN}/${seo.hash || ''}`;
+
+  document.title = seo.title;
+  setMetaTag('meta[name="description"]', 'content', seo.description);
+  setMetaTag('meta[name="keywords"]', 'content', seo.keywords);
+  setMetaTag('link[rel="canonical"]', 'href', url);
+  setMetaTag('meta[property="og:title"]', 'content', seo.title);
+  setMetaTag('meta[property="og:description"]', 'content', seo.description);
+  setMetaTag('meta[property="og:url"]', 'content', url);
+  setMetaTag('meta[property="og:image"]', 'content', DEFAULT_SEO_IMAGE);
+  setMetaTag('meta[name="twitter:title"]', 'content', seo.title);
+  setMetaTag('meta[name="twitter:description"]', 'content', seo.description);
+  setMetaTag('meta[name="twitter:image"]', 'content', DEFAULT_SEO_IMAGE);
+}
+
+function getProductSeoAlt(product) {
+  const category = String(product?.category || 'solar product').toLowerCase();
+  const name = String(product?.name || 'Meseret Mare solar product').replace(/\s+/g, ' ').trim();
+  if (category.includes('pump')) {
+    return `${name} solar water pump for irrigation, wells, and off-grid water supply in Ethiopia`;
+  }
+  if (category.includes('home')) {
+    return `${name} solar home system for lighting, phone charging, and off-grid homes in Ethiopia`;
+  }
+  if (category.includes('lighting')) {
+    return `${name} portable solar lantern for homes and off-grid villages in Ethiopia`;
+  }
+  if (category.includes('appliance')) {
+    return `${name} solar appliance for off-grid homes and institutions in Ethiopia`;
+  }
+  return `${name} ${category} imported solar product for Ethiopia`;
+}
+
+function getAssetBasename(value) {
+  const source = String(value || '').trim().replace(/\\/g, '/');
+  if (!source) return '';
+  const withoutQuery = source.split('?')[0].split('#')[0];
+  return withoutQuery.slice(withoutQuery.lastIndexOf('/') + 1).toLowerCase();
+}
+
+function isKnownBrokenAssetPath(value) {
+  return knownBrokenAssetBasenames.has(getAssetBasename(value));
+}
+
+function wrapPlaceholderText(value, lineLength = 18, maxLines = 3) {
+  const words = String(value || '')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .split(' ')
+    .filter(Boolean);
+
+  if (!words.length) {
+    return ['Meseret Mare Solar'];
+  }
+
+  const lines = [];
+  let currentLine = '';
+
+  words.forEach((word) => {
+    const nextLine = currentLine ? `${currentLine} ${word}` : word;
+    if (nextLine.length <= lineLength || currentLine === '') {
+      currentLine = nextLine;
+      return;
+    }
+
+    lines.push(currentLine);
+    currentLine = word;
+  });
+
+  if (currentLine) {
+    lines.push(currentLine);
+  }
+
+  return lines.slice(0, maxLines);
+}
+
+function escapeXml(value) {
+  return String(value || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function createTextPlaceholder(title, subtitle = '', accent = '#1c8a3f') {
+  const lines = wrapPlaceholderText(title);
+  const lineMarkup = lines
+    .map(
+      (line, index) =>
+        `<text x="32" y="${164 + index * 34}" font-family="Outfit,Segoe UI,sans-serif" font-size="28" font-weight="700" fill="#05210d">${escapeXml(line)}</text>`
+    )
+    .join('');
+
+  const safeTitle = escapeXml(title || 'Meseret Mare Solar');
+  const safeSubtitle = escapeXml(subtitle || 'Meseret Mare Solar');
+
+  const svg = `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 640" role="img" aria-label="${safeTitle}">
+      <defs>
+        <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#fcfff6" />
+          <stop offset="100%" stop-color="#dff8cb" />
+        </linearGradient>
+        <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="${accent}" />
+          <stop offset="100%" stop-color="#f5c518" />
+        </linearGradient>
+      </defs>
+      <rect width="900" height="640" rx="36" fill="url(#bg)" />
+      <circle cx="748" cy="128" r="118" fill="rgba(245,197,24,0.20)" />
+      <circle cx="144" cy="528" r="158" fill="rgba(157,243,110,0.30)" />
+      <rect x="32" y="32" width="240" height="42" rx="21" fill="url(#accent)" />
+      <text x="56" y="60" font-family="Inter,Segoe UI,sans-serif" font-size="20" font-weight="700" fill="#ffffff">${safeSubtitle}</text>
+      <rect x="32" y="112" width="836" height="420" rx="28" fill="#ffffff" fill-opacity="0.72" stroke="rgba(28,138,63,0.12)" />
+      ${lineMarkup}
+      <text x="32" y="584" font-family="Inter,Segoe UI,sans-serif" font-size="22" font-weight="600" fill="#476154">Professional solar solutions for Ethiopia</text>
+    </svg>
+  `;
+
+  return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
+}
+
+function normalizeAssetPath(value, fallback = '') {
+  const source = String(value || '').trim().replace(/\\/g, '/');
+  if (!source) return fallback;
+  if (/^(https?:)?\/\//i.test(source) || source.startsWith('data:')) {
+    return source;
+  }
+  if (source.startsWith('/')) {
+    const normalized = source.replace(/\/{2,}/g, '/');
+    if (typeof window === 'undefined') {
+      return normalized;
+    }
+
+    const basePath = getRuntimeBasePath();
+    if (basePath !== '/' && /^\/(?:images|uploads|partners|api)\//.test(normalized)) {
+      return `${basePath.replace(/\/$/, '')}${normalized}`.replace(/\/{2,}/g, '/');
+    }
+
+    return normalized;
+  }
+  if (typeof window === 'undefined') {
+    return `/${source.replace(/^\.?\//, '')}`.replace(/\/{2,}/g, '/');
+  }
+
+  return new URL(source.replace(/^\.?\//, ''), document.baseURI || window.location.href).toString();
+}
+
+function looksMojibake(value) {
+  return /(?:Ã.|Â.|â.|á.)/.test(value);
+}
+
+function repairText(value) {
+  if (!looksMojibake(value)) {
+    return value;
+  }
+
+  try {
+    const bytes = Uint8Array.from(Array.from(value, (char) => char.charCodeAt(0) & 0xff));
+    const repaired = new TextDecoder('utf-8', { fatal: false }).decode(bytes);
+    return repaired && !repaired.includes('\ufffd') ? repaired : value;
+  } catch {
+    return value;
+  }
+}
+
+function summarizeText(value, maxLength = 170) {
+  const normalized = String(value || '').replace(/\s+/g, ' ').trim();
+  if (!normalized) {
+    return 'Designed for dependable off-grid solar deployment.';
+  }
+
+  if (normalized.length <= maxLength) {
+    return normalized;
+  }
+
+  const sentenceMatch = normalized.match(/^(.{1,170}?[.!?])(?:\s|$)/);
+  if (sentenceMatch?.[1]) {
+    return sentenceMatch[1].trim();
+  }
+
+  return `${normalized.slice(0, Math.max(0, maxLength - 3)).trimEnd()}...`;
+}
+
+function getProductIdentity(product, fallbackIndex = 0) {
+  return [
+    product?.id,
+    product?.name,
+    product?.model,
+    product?.category,
+    fallbackIndex,
+  ]
+    .filter((value) => value !== undefined && value !== null && String(value).trim() !== '')
+    .map((value) => String(value).trim())
+    .join('::');
+}
+
+function normalizeContent(value, key = '') {
+  if (Array.isArray(value)) {
+    return value.map((item) => normalizeContent(item, key));
+  }
+
+  if (value && typeof value === 'object') {
+    return Object.fromEntries(
+      Object.entries(value).map(([entryKey, entryValue]) => [entryKey, normalizeContent(entryValue, entryKey)])
+    );
+  }
+
+  if (typeof value === 'string') {
+    const repaired = repairText(value).trim();
+    if (imageLikeKeys.has(key)) {
+      return normalizeAssetPath(repaired);
+    }
+    return repaired;
+  }
+
+  return value;
+}
+
+function productFallbackImage(category) {
+  return category === 'Solar Home Systems' || category === 'Solar Appliances'
+    ? assetFallbacks.home
+    : assetFallbacks.product;
+}
+
+function withReferenceMedia(items, referenceItems, keyField) {
+  const referenceMap = new Map(
+    (referenceItems || []).map((item) => [String(item?.[keyField] || '').trim().toLowerCase(), item])
+  );
+
+  return (items || []).map((item) => {
+    const key = String(item?.[keyField] || '').trim().toLowerCase();
+    const reference = referenceMap.get(key);
+
+    return {
+      ...reference,
+      ...item,
+      image: item?.image || reference?.image || '',
+    };
+  });
+}
+
+function SmartImage({ src, alt, fallback, ...props }) {
+  const resolvedFallback = normalizeAssetPath(fallback || assetFallbacks.product);
+  const [currentSrc, setCurrentSrc] = useState(() =>
+    isKnownBrokenAssetPath(src) ? resolvedFallback : normalizeAssetPath(src, resolvedFallback)
+  );
+
+  useEffect(() => {
+    setCurrentSrc(isKnownBrokenAssetPath(src) ? resolvedFallback : normalizeAssetPath(src, resolvedFallback));
+  }, [src, resolvedFallback]);
+
+  return (
+    <img
+      {...props}
+      src={currentSrc}
+      alt={alt}
+      onError={() => {
+        if (currentSrc !== resolvedFallback) {
+          setCurrentSrc(resolvedFallback);
+        }
+      }}
+    />
+  );
+}
 
 const pageMotion = {
   initial: { opacity: 0, y: 30, scale: 0.98, filter: 'blur(12px)' },
@@ -166,6 +514,15 @@ function getInitialPage() {
   return navItems.some((item) => item.id === hash) ? hash : 'home';
 }
 
+function getRuntimeBasePath() {
+  if (typeof window === 'undefined') {
+    return '/';
+  }
+
+  const baseUrl = new URL(document.baseURI || window.location.href);
+  return baseUrl.pathname.endsWith('/') ? baseUrl.pathname : baseUrl.pathname.replace(/[^/]+$/, '');
+}
+
 function Header({ activePage, onNavigate }) {
   const [open, setOpen] = useState(false);
   const [overHero, setOverHero] = useState(true);
@@ -198,7 +555,7 @@ function Header({ activePage, onNavigate }) {
       <div className="container header-inner">
         <button className="brand" type="button" onClick={() => handleNavigate('home')}>
           <span className="brand-mark" aria-hidden="true">
-            <img src={siteSettings.brand?.logo} alt="" />
+            <SmartImage src={siteSettings.brand?.logo} fallback={assetFallbacks.logo} alt="" />
           </span>
           <span>
             <span className="brand-name">{siteSettings.brand?.name}</span>
@@ -269,8 +626,9 @@ function PartnerRibbon() {
     <div className="partner-ribbon-set" aria-hidden={hidden}>
       {partnerLogos.map((partner) => (
         <span className="partner-logo-pill" key={`${hidden ? 'repeat-' : ''}${partner.name}`}>
-          <img
+          <SmartImage
             src={partner.logo}
+            fallback={assetFallbacks.partner}
             alt={hidden ? '' : partner.name}
             loading="eager"
             decoding="async"
@@ -308,7 +666,7 @@ function HomePage({ onNavigate }) {
     <div className="page-view home-view">
       <motion.section
         className="hero"
-        style={{ '--hero-bg': `url(${siteMedia.home_hero_image})` }}
+        style={{ '--hero-bg': `url(${normalizeAssetPath(siteMedia.home_hero_image, assetFallbacks.hero)})` }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
@@ -387,7 +745,7 @@ function HomePage({ onNavigate }) {
             const Icon = item.icon;
             return (
               <motion.button className="product-rail-item" key={item.title} type="button" onClick={() => onNavigate('products')} {...staggerItem} transition={{ ...staggerItem.transition, delay: i * 0.12 }}>
-                <img src={item.image} alt="" aria-hidden="true" loading="lazy" />
+                <SmartImage src={item.image} fallback={productFallbackImage(item.title)} alt={`${item.title} for solar energy use in Ethiopia`} loading="lazy" />
                 <Icon size={28} />
                 <span>{item.title}</span>
                 <strong>{item.meta}</strong>
@@ -404,7 +762,7 @@ function HomePage({ onNavigate }) {
         <motion.div className="work-timeline" {...staggerContainer}>
           {previousWorks.map((item, index) => (
             <motion.article className="work-row" key={item.title} {...staggerItem} transition={{ ...staggerItem.transition, delay: index * 0.12 }}>
-              <img src={item.image} alt="" aria-hidden="true" loading="lazy" referrerPolicy="no-referrer" />
+              <SmartImage src={item.image} fallback={assetFallbacks.proof} alt={`${item.title} solar field work and off-grid energy impact in Ethiopia`} loading="lazy" referrerPolicy="no-referrer" />
               <span>{String(index + 1).padStart(2, '0')}</span>
               <h3>{item.title}</h3>
               <p>{item.detail}</p>
@@ -485,7 +843,7 @@ function PageShell({ page, children, side }) {
     <div className="page-view">
       <motion.section
         className="page-hero"
-        style={{ '--hero-bg': `url(${siteMedia.page_hero_image})` }}
+        style={{ '--hero-bg': `url(${normalizeAssetPath(siteMedia.page_hero_image, assetFallbacks.hero)})` }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
@@ -509,7 +867,7 @@ function PageShell({ page, children, side }) {
         </div>
       </motion.section>
       <motion.section
-        className="container page-content"
+        className={`container page-content ${page}-page-content`}
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
@@ -608,10 +966,13 @@ function AboutPage() {
 }
 
 function NewsCard({ post, onClick }) {
+  const summary = post.excerpt || post.content?.[0] || 'Open to view the full update.';
+  const fallback = createTextPlaceholder(post.title, post.category || 'Meseret Mare Solar', '#0f5c2a');
+
   return (
     <motion.article className="news-card" onClick={onClick} {...revealMotion}>
       <div className="news-card-image-wrapper">
-        <img className="news-card-image" src={post.image} alt="" loading="lazy" referrerPolicy="no-referrer" />
+        <SmartImage className="news-card-image" src={post.image} fallback={fallback} alt={post.title} loading="lazy" referrerPolicy="no-referrer" />
       </div>
       <div className="news-card-body">
         <div className="news-card-meta">
@@ -619,7 +980,7 @@ function NewsCard({ post, onClick }) {
           <span className="news-card-date">{post.date}</span>
         </div>
         <h3>{post.title}</h3>
-        <p>{post.excerpt}</p>
+        <p>{summary}</p>
         <span className="news-card-link">
           Read more <ArrowRight size={14} />
         </span>
@@ -629,6 +990,8 @@ function NewsCard({ post, onClick }) {
 }
 
 function NewsModal({ post, onClose }) {
+  const fallback = createTextPlaceholder(post.title, post.category || 'Meseret Mare Solar', '#0f5c2a');
+
   useEffect(() => {
     document.body.classList.add('modal-open-state');
     const handleEsc = (e) => { if (e.key === 'Escape') onClose(); };
@@ -659,7 +1022,7 @@ function NewsModal({ post, onClose }) {
           <X size={20} />
         </button>
         <div className="news-modal-image-wrapper">
-          <img className="news-modal-image" src={post.image} alt="" referrerPolicy="no-referrer" />
+          <SmartImage className="news-modal-image" src={post.image} fallback={fallback} alt={post.title} referrerPolicy="no-referrer" />
         </div>
         <div className="news-modal-content">
           <div className="news-modal-header">
@@ -670,10 +1033,57 @@ function NewsModal({ post, onClose }) {
             <h2>{post.title}</h2>
           </div>
           <div className="news-modal-body">
-            {post.content.map((paragraph, i) => (
+            {(post.content?.length ? post.content : [post.excerpt || '']).map((paragraph, i) => (
               <p key={i}>{paragraph}</p>
             ))}
           </div>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+}
+
+function MapModal({ address, onClose }) {
+  useEffect(() => {
+    document.body.classList.add('modal-open-state');
+    const handleEsc = (e) => { if (e.key === 'Escape') onClose(); };
+    window.addEventListener('keydown', handleEsc);
+    return () => {
+      document.body.classList.remove('modal-open-state');
+      window.removeEventListener('keydown', handleEsc);
+    };
+  }, [onClose]);
+
+  return (
+    <motion.div
+      className="news-modal-overlay"
+      onClick={onClose}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      <motion.div
+        className="news-modal map-modal"
+        onClick={(e) => e.stopPropagation()}
+        initial={{ opacity: 0, y: 40, scale: 0.96 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        exit={{ opacity: 0, y: 40, scale: 0.96 }}
+        transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
+        style={{ padding: '24px', maxWidth: '800px', width: '90%', display: 'flex', flexDirection: 'column' }}
+      >
+        <button className="news-modal-close" onClick={onClose} aria-label="Close" style={{ right: '16px', top: '16px' }}>
+          <X size={20} />
+        </button>
+        <div style={{ width: '100%', height: '400px', borderRadius: '12px', overflow: 'hidden', marginTop: '12px' }}>
+          <iframe
+            title="Map Location"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            loading="lazy"
+            allowFullScreen
+            src={`https://www.google.com/maps?q=${encodeURIComponent(address || 'Ethiopia')}&output=embed`}
+          ></iframe>
         </div>
       </motion.div>
     </motion.div>
@@ -768,9 +1178,19 @@ function ServicesPage() {
 function ProductsPage() {
   const copy = pageCopy.products;
   const [expandedProduct, setExpandedProduct] = useState(null);
+  const [activeCategory, setActiveCategory] = useState('All Products');
+  const categories = ['All Products', ...Array.from(new Set(products.map((product) => product.category).filter(Boolean)))];
+  const filteredProducts = activeCategory === 'All Products'
+    ? products
+    : products.filter((product) => product.category === activeCategory);
 
-  const toggleProduct = (productName) => {
-    setExpandedProduct((current) => (current === productName ? null : productName));
+  const toggleProduct = (productId) => {
+    setExpandedProduct((current) => (current === productId ? null : productId));
+  };
+
+  const selectCategory = (category) => {
+    setActiveCategory(category);
+    setExpandedProduct(null);
   };
 
   return (
@@ -784,64 +1204,96 @@ function ProductsPage() {
         </div>
       }
     >
+      <div className="product-filter-bar" aria-label="Product categories">
+        {categories.map((category) => (
+          <button
+            className={`product-filter-btn ${activeCategory === category ? 'active' : ''}`}
+            key={category}
+            type="button"
+            onClick={() => selectCategory(category)}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
       <motion.div className="product-grid" {...staggerContainer}>
-        {products.map((product, i) => {
-          const isExpanded = expandedProduct === product.name;
-          const hasDetails = Boolean(product.details);
+        {filteredProducts.map((product, i) => {
+          const productId = getProductIdentity(product, i);
+          const isExpanded = expandedProduct === productId;
+          const detailText = String(product.details || '').trim();
+          const compactSummary = summarizeText(product.use || detailText, 96);
+          const hasDetails = Boolean(detailText) && detailText !== compactSummary;
+          const features = Array.isArray(product.features) ? product.features : [];
+          const specs = Array.isArray(product.specs) ? product.specs : [];
+          const featurePreview = isExpanded ? features : [];
+          const specPreview = isExpanded ? specs : [];
+          const fallbackImage = createTextPlaceholder(product.name, 'Meseret Mare Solar');
+          const shouldShowToggle = Boolean(detailText || features.length || specs.length);
+          const collapsedMeta = [
+            product.model ? `Model ${product.model}` : '',
+            features.length ? `${features.length} feature${features.length === 1 ? '' : 's'}` : '',
+            specs.length ? `${specs.length} spec${specs.length === 1 ? '' : 's'}` : '',
+          ].filter(Boolean);
 
           return (
             <motion.article
               className={`product-card product-card-detailed ${isExpanded ? 'is-expanded' : ''}`}
-              key={product.name}
-              role={hasDetails ? 'button' : undefined}
-              tabIndex={hasDetails ? 0 : undefined}
-              aria-expanded={hasDetails ? isExpanded : undefined}
-              onClick={() => hasDetails && toggleProduct(product.name)}
-              onKeyDown={(event) => {
-                if (!hasDetails) return;
-                if (event.key === 'Enter' || event.key === ' ') {
-                  event.preventDefault();
-                  toggleProduct(product.name);
-                }
-              }}
+              key={productId}
               {...staggerItem}
               transition={{ ...staggerItem.transition, delay: i * 0.06 }}
             >
-              <img src={product.image} alt="" aria-hidden="true" loading="lazy" />
-              <div>
-                <span>{product.category}</span>
-                <h2>{product.name}</h2>
-                <strong>{product.model}</strong>
+              <div className="product-card-media">
+                <span className="product-card-category">{product.category}</span>
+                <div className="product-card-media-shell">
+                  <SmartImage src={product.image} fallback={fallbackImage} alt={getProductSeoAlt(product)} loading="lazy" />
+                </div>
+                <div className="product-card-media-caption">
+                  <strong>{product.name}</strong>
+                  {collapsedMeta.length ? <span>{collapsedMeta.join(' - ')}</span> : null}
+                </div>
               </div>
-              <p>{product.use}</p>
-              {hasDetails && (
-                <>
+              <div className="product-card-body">
+                <p className={`product-card-summary ${isExpanded ? 'is-expanded' : ''}`}>{compactSummary}</p>
+                {isExpanded && featurePreview.length ? (
+                  <ul className="product-card-features">
+                    {featurePreview.map((feature) => (
+                      <li key={feature}>{feature}</li>
+                    ))}
+                  </ul>
+                ) : null}
+                {isExpanded && specPreview.length ? (
+                  <div className="spec-strip">
+                    {specPreview.map((spec) => (
+                      <span key={spec}>{spec}</span>
+                    ))}
+                  </div>
+                ) : null}
+              </div>
+              {shouldShowToggle && (
+                <div className="product-card-expand">
                   <AnimatePresence initial={false}>
-                    {isExpanded && (
-                      <motion.p
+                    {isExpanded && hasDetails && (
+                      <motion.div
                         className="product-card-details"
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.22 }}
                       >
-                        {product.details}
-                      </motion.p>
+                        <p>{detailText}</p>
+                      </motion.div>
                     )}
                   </AnimatePresence>
-                  <span className="product-card-toggle">{isExpanded ? 'Show less' : 'See more'}</span>
-                </>
+                  <button
+                    className="product-card-toggle"
+                    type="button"
+                    aria-expanded={isExpanded}
+                    onClick={() => toggleProduct(productId)}
+                  >
+                    {isExpanded ? 'Show less' : 'Show more'}
+                  </button>
+                </div>
               )}
-              <ul>
-                {product.features.slice(0, 3).map((feature) => (
-                  <li key={feature}>{feature}</li>
-                ))}
-              </ul>
-              <div className="spec-strip">
-                {product.specs.map((spec) => (
-                  <span key={spec}>{spec}</span>
-                ))}
-              </div>
             </motion.article>
           );
         })}
@@ -859,14 +1311,56 @@ function ProductsPage() {
 
 
 function ContactPage() {
-  const [submitted, setSubmitted] = useState(false);
   const formCopy = contactInfo.form || {};
   const needOptions = formCopy.need_options || [];
 
-  const handleSubmit = (event) => {
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    need: needOptions[0] || '',
+    message: '',
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleChange = (e) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3500);
+    setIsSubmitting(true);
+    setSubmitSuccess(false);
+    setErrorMessage('');
+
+    const payload = {
+      name: formData.name,
+      phone: formData.phone,
+      email: formData.email || 'inquiry@meseretmare.com',
+      subject: `Solar Inquiry: ${formData.need}`,
+      message: `Interest: ${formData.need}\n\nDetails: ${formData.message}`,
+    };
+
+    try {
+      const response = await fetch('/DM154/api/contact.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const result = await response.json();
+      if (response.ok && result.success) {
+        setSubmitSuccess(true);
+        setFormData({ name: '', phone: '', need: needOptions[0] || '', message: '' });
+        setTimeout(() => setSubmitSuccess(false), 6000);
+      } else {
+        setErrorMessage(result.error || result.message || 'Submission failed. Please try again.');
+      }
+    } catch {
+      setErrorMessage('Network error. Please check your connection and try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -893,16 +1387,29 @@ function ContactPage() {
         <div className="form-grid">
           <label>
             {formCopy.name_label}
-            <input required placeholder={formCopy.name_placeholder} />
+            <input
+              name="name"
+              required
+              placeholder={formCopy.name_placeholder}
+              value={formData.name}
+              onChange={handleChange}
+            />
           </label>
           <label>
             {formCopy.phone_label}
-            <input required placeholder={formCopy.phone_placeholder} type="tel" />
+            <input
+              name="phone"
+              required
+              placeholder={formCopy.phone_placeholder}
+              type="tel"
+              value={formData.phone}
+              onChange={handleChange}
+            />
           </label>
         </div>
         <label>
           {formCopy.need_label}
-          <select defaultValue={needOptions[0]}>
+          <select name="need" value={formData.need} onChange={handleChange}>
             {needOptions.map((option) => (
               <option key={option}>{option}</option>
             ))}
@@ -910,18 +1417,56 @@ function ContactPage() {
         </label>
         <label>
           {formCopy.details_label}
-          <textarea required rows="4" placeholder={formCopy.details_placeholder} />
+          <textarea
+            name="message"
+            required
+            rows="4"
+            placeholder={formCopy.details_placeholder}
+            value={formData.message}
+            onChange={handleChange}
+          />
         </label>
-        <button className="btn btn-primary" type="submit">
-          {submitted ? (
+
+        {submitSuccess && (
+          <motion.div
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            style={{ color: '#16a34a', background: '#f0fdf4', border: '1px solid #bbf7d0', padding: '12px 16px', borderRadius: '10px', fontSize: '14px', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px' }}
+          >
+            <Check size={18} /> Your inquiry has been sent! We'll contact you within 24 hours.
+          </motion.div>
+        )}
+        {errorMessage && (
+          <motion.div
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            style={{ color: '#dc2626', background: '#fef2f2', border: '1px solid #fee2e2', padding: '12px 16px', borderRadius: '10px', fontSize: '14px', fontWeight: 500 }}
+          >
+            {errorMessage}
+          </motion.div>
+        )}
+
+        <button
+          className="btn btn-primary"
+          type="submit"
+          disabled={isSubmitting || submitSuccess}
+          style={{ opacity: (isSubmitting || submitSuccess) ? 0.75 : 1, cursor: (isSubmitting || submitSuccess) ? 'not-allowed' : 'pointer' }}
+        >
+          {submitSuccess ? (
             <>
               <Check size={17} />
-              {formCopy.sent_label}
+              {formCopy.sent_label || 'Sent!'}
             </>
+          ) : isSubmitting ? (
+            'Sending...'
           ) : (
             <>
               <Send size={17} />
-              {formCopy.submit_label}
+              {formCopy.submit_label || 'Send request'}
             </>
           )}
         </button>
@@ -953,82 +1498,96 @@ function SocialIcon({ label }) {
 }
 
 function Footer({ onNavigate }) {
-  return (
-    <motion.footer
-      className="site-footer"
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.05 }}
-      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-    >
-      <div className="container footer-inner">
-        <div className="footer-columns">
-          <motion.div className="footer-col about-col" {...slideFromLeft}>
-            <div className="footer-brand">
-              <img src={siteSettings.brand?.logo} alt="" aria-hidden="true" />
-            </div>
-            <h3>{footerContent.about_heading}</h3>
-            <p>{footerContent.about_text}</p>
-            <div className="social-icons">
-              {socialLinks.map((link) => (
-                <a href={link.url} target="_blank" rel="noreferrer" aria-label={link.label} key={link.label}>
-                  <SocialIcon label={link.label} />
-                </a>
-              ))}
-            </div>
-          </motion.div>
-          
-          <motion.div className="footer-col links-col" {...revealMotion}>
-            <h3>{footerContent.links_heading}</h3>
-            <nav className="footer-links">
-              {navItems.map((item) => (
-                <button key={item.id} type="button" onClick={() => onNavigate(item.id)}>
-                  {item.label}
-                </button>
-              ))}
-              <button type="button" onClick={() => onNavigate('contact')}>{footerContent.contact_nav_label}</button>
-            </nav>
-          </motion.div>
+  const [isMapOpen, setIsMapOpen] = useState(false);
 
-          <motion.div className="footer-col contact-col" {...slideFromRight}>
-            <h3>{footerContent.contact_heading}</h3>
-            <ul className="contact-list">
-              <li>
-                <Phone size={18} />
-                <span>{contactInfo.phone_display}</span>
-              </li>
-              <li>
-                <Mail size={18} />
-                <span>
-                  {splitLines(contactInfo.email_display).map((line, index) => (
-                    <React.Fragment key={line}>
-                      {index > 0 && <br />}
-                      {line}
-                    </React.Fragment>
-                  ))}
-                </span>
-              </li>
-              <li>
-                <MapPin size={18} />
-                <span>
-                  {splitLines(contactInfo.address_display).map((line, index) => (
-                    <React.Fragment key={line}>
-                      {index > 0 && <br />}
-                      {line}
-                    </React.Fragment>
-                  ))}
-                </span>
-              </li>
-            </ul>
-          </motion.div>
+  return (
+    <>
+      <motion.footer
+        className="site-footer"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.05 }}
+        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <div className="container footer-inner">
+          <div className="footer-columns">
+            <motion.div className="footer-col about-col" {...slideFromLeft}>
+              <div className="footer-brand">
+                <SmartImage src={siteSettings.brand?.logo} fallback={assetFallbacks.logo} alt="" aria-hidden="true" />
+              </div>
+              <h3>{footerContent.about_heading}</h3>
+              <p>{footerContent.about_text}</p>
+              <div className="social-icons">
+                {socialLinks.map((link) => (
+                  <a href={link.url} target="_blank" rel="noreferrer" aria-label={link.label} key={link.label}>
+                    <SocialIcon label={link.label} />
+                  </a>
+                ))}
+              </div>
+            </motion.div>
+            
+            <motion.div className="footer-col links-col" {...revealMotion}>
+              <h3>{footerContent.links_heading}</h3>
+              <nav className="footer-links">
+                {navItems.map((item) => (
+                  <button key={item.id} type="button" onClick={() => onNavigate(item.id)}>
+                    {item.label}
+                  </button>
+                ))}
+                <button type="button" onClick={() => onNavigate('contact')}>{footerContent.contact_nav_label}</button>
+              </nav>
+            </motion.div>
+
+            <motion.div className="footer-col contact-col" {...slideFromRight}>
+              <h3>{footerContent.contact_heading}</h3>
+              <ul className="contact-list">
+                <li>
+                  <Phone size={18} />
+                  <a href={`tel:${contactInfo.primary_phone}`} style={{ color: 'inherit', textDecoration: 'none' }}>
+                    <span>{contactInfo.phone_display}</span>
+                  </a>
+                </li>
+                <li>
+                  <Mail size={18} />
+                  <a href={`mailto:${contactInfo.primary_email}`} style={{ color: 'inherit', textDecoration: 'none' }}>
+                    <span>
+                      {splitLines(contactInfo.email_display).map((line, index) => (
+                        <React.Fragment key={line}>
+                          {index > 0 && <br />}
+                          {line}
+                        </React.Fragment>
+                      ))}
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <MapPin size={18} />
+                  <button type="button" onClick={() => setIsMapOpen(true)} style={{ background: 'none', border: 'none', color: 'inherit', font: 'inherit', cursor: 'pointer', padding: 0, textAlign: 'left' }}>
+                    <span>
+                      {splitLines(contactInfo.address_display).map((line, index) => (
+                        <React.Fragment key={line}>
+                          {index > 0 && <br />}
+                          {line}
+                        </React.Fragment>
+                      ))}
+                    </span>
+                  </button>
+                </li>
+              </ul>
+            </motion.div>
+          </div>
         </div>
-      </div>
-      <div className="footer-bottom">
-        <div className="container">
-          <p>{footerContent.copyright_text}</p>
+        <div className="footer-bottom">
+          <div className="container">
+            <p>{footerContent.copyright_text}</p>
+          </div>
         </div>
-      </div>
-    </motion.footer>
+      </motion.footer>
+
+      <AnimatePresence>
+        {isMapOpen && <MapModal address={contactInfo.address_short || contactInfo.address_display} onClose={() => setIsMapOpen(false)} />}
+      </AnimatePresence>
+    </>
   );
 }
 
@@ -1054,12 +1613,10 @@ export default function App() {
   const [activePage, setActivePage] = useState(getInitialPage);
 
   useEffect(() => {
-    const path = window.location.pathname;
-    if (path === '/DM154' || path === '/DM154/') {
-      window.location.replace('/DM154/index.html');
-      return;
-    }
+    applyPageSeo(activePage);
+  }, [activePage]);
 
+  useEffect(() => {
     const handleHashChange = () => setActivePage(getInitialPage());
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);

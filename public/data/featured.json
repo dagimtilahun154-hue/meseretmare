@@ -1,0 +1,22 @@
+{
+  "featured": [
+    {
+      "icon": "Droplet",
+      "title": "Solar Pump Systems",
+      "meta": "Irrigation, wells, and community water",
+      "image": "/images/product-solar-pump.png"
+    },
+    {
+      "icon": "BatteryCharging",
+      "title": "Solar Home Kits",
+      "meta": "Lighting, charging, and home power",
+      "image": "/images/product-home-kit.png"
+    },
+    {
+      "icon": "Zap",
+      "title": "DC Solar Appliances",
+      "meta": "Fans, TV, and efficient essentials",
+      "image": "/images/hero-solar-field.png"
+    }
+  ]
+}

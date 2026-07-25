@@ -4,37 +4,37 @@
       "icon": "Droplet",
       "title": "Solar Water Pump Services",
       "category": "Water & Agriculture",
-      "detail": "Complete solutions for agricultural irrigation and community drinking water."
+      "detail": "Solar water pump sizing, supply, installation, and support for agricultural irrigation and community drinking water in Ethiopia."
     },
     {
       "icon": "FileSearch",
       "title": "Site Assessment & Design",
       "category": "Engineering",
-      "detail": "Analysis of solar potential, load needs, and site conditions."
+      "detail": "Solar site assessment, load review, pump selection, and system design for farms, homes, NGOs, and institutions."
     },
     {
       "icon": "Wrench",
       "title": "Installation & Commissioning",
       "category": "Technical setup",
-      "detail": "Turnkey setup, testing, and commissioning for reliable operation."
+      "detail": "Turnkey solar installation, testing, commissioning, and user handover for reliable operation."
     },
     {
       "icon": "HeartPulse",
       "title": "Monitoring & Maintenance",
       "category": "After-sales care",
-      "detail": "Preventative check-ups, diagnostics, and optimization."
+      "detail": "Solar monitoring, preventative maintenance, diagnostics, and performance optimization."
     },
     {
       "icon": "GraduationCap",
       "title": "Educational Services",
       "category": "Training",
-      "detail": "Solar literacy and basic maintenance training for communities."
+      "detail": "Solar literacy, safe use, and basic maintenance training for communities and project users."
     },
     {
       "icon": "Users",
       "title": "Outreach & Distribution",
       "category": "Access",
-      "detail": "Last-mile promotion in remote off-grid regions."
+      "detail": "Last-mile promotion and distribution for remote off-grid regions and rural solar programs."
     }
   ]
 }
