@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Temporary builds & scratch scripts
+*.zip
+temp_extract*/
+scratch_parser/
+check_*.js
+fix_app_syntax.js

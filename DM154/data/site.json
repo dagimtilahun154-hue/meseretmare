@@ -1,0 +1,87 @@
+{
+  "brand": {
+    "name": "Meseret Mare",
+    "subtitle": "Solar Products Importer",
+    "logo": "/images/meseret-solar-logo.webp"
+  },
+  "contact": {
+    "primary_phone": "+251 910691261",
+    "phone_secondary": "+251 913040053",
+    "phone_display": "Phone 1: +251 910691261 | Phone 2: +251 913040053",
+    "primary_email": "meseretmare79@gmail.com / info@meseretmare.com",
+    "email_display": "meseretmare79@gmail.com / info@meseretmare.com",
+    "address_short": "Addis Ababa, Gulele Sub City",
+    "address_display": "Gulele Sub City, Addisu Gebeya, Near to NOC Gas Station\nAddis Ababa, Ethiopia",
+    "address_am": "ጉለሌ ክፍለ ከተማ፣ አዲሱ ገበያ፣ ከኤንኦሲ ማደያ አጠገብ፣ አዲስ አበባ፣ ኢትዮጵያ"
+  },
+  "social_links": {
+    "telegram": "https://t.me/meseretmaresolar",
+    "facebook": "https://www.facebook.com/profile.php?id=61552345711287",
+    "instagram": "https://www.instagram.com/meseretmaresolar/",
+    "youtube": "https://youtube.com/@meseretmare",
+    "linkedin": "https://www.linkedin.com/company/107757674/admin/dashboard/",
+    "tiktok": "http://tiktok.com/@meseretmaresolar"
+  },
+  "partner_logos": [
+    {
+      "name": "CARE International Ethiopia",
+      "logo": "/partners/webp/care-international-ethiopia.webp",
+      "description": "Credit options for low-income farmers buying solar kits and productive-use systems."
+    },
+    {
+      "name": "Addis Ababa University",
+      "logo": "/partners/webp/addis-ababa-university.webp",
+      "description": "Academic research and solar energy technology testing partner."
+    },
+    {
+      "name": "Ethiopian Solar Energy Development Association",
+      "logo": "/partners/webp/ethiopian-solar-energy-development-association.webp",
+      "description": "Industry advocacy and solar energy standards in Ethiopia."
+    },
+    {
+      "name": "ASDEPO",
+      "logo": "/partners/webp/asdepo.webp",
+      "description": "Humanitarian and community development partner across regional states."
+    },
+    {
+      "name": "Purpose Black",
+      "logo": "/partners/webp/purpose-black.webp",
+      "description": "Agricultural development and solar irrigation partner."
+    },
+    {
+      "name": "Winrock International",
+      "logo": "/partners/webp/winrock.webp",
+      "description": "Clean energy transition and agricultural water supply initiatives."
+    },
+    {
+      "name": "Ministry of Water and Energy",
+      "logo": "/partners/webp/ministry-of-water-and-energy.webp",
+      "description": "Rural electrification targets and standard compliance for solar imports across Ethiopia."
+    },
+    {
+      "name": "Development Bank of Ethiopia",
+      "logo": "/partners/webp/development-bank-of-ethiopia.webp",
+      "description": "Credit facilities, forex allocation support, and rural customer financing models."
+    },
+    {
+      "name": "GIZ Ethiopia",
+      "logo": "/partners/webp/giz.webp",
+      "description": "Technical capacity building, field training, and rural distribution network support."
+    },
+    {
+      "name": "Ministry of Agriculture",
+      "logo": "/partners/webp/ministry-of-agriculture.webp",
+      "description": "Solar irrigation pump standards and farmer support initiatives."
+    },
+    {
+      "name": "GOGLA",
+      "logo": "/partners/webp/gogla.webp",
+      "description": "Global association for off-grid solar energy industry."
+    }
+  ],
+  "footer": {
+    "about_heading": "About Meseret Mare Gebre Solar",
+    "about_text": "Since 2016, Meseret Mare Gebre Solar Products Importer has been dedicated to enhancing the lifestyle of people by providing top-quality solar products at affordable prices. As a proud member of GOGLA, we partner with stakeholders across the globe to deliver innovative solar solutions.",
+    "copyright_text": "2026 © Meseret Mare Gebre Solar Importer. All rights reserved. Powering brighter days across Ethiopia."
+  }
+}
